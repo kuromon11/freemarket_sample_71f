@@ -120,6 +120,7 @@ Things you may want to cover:
 ## shippingテーブル
 |Column|Type|Options|
 |------|----|-------|
+|item_id|references|null: false, foreign_key: true|
 |fee_burgen|boolean|null: false, foreign_key: true|
 |service|integer|null: false|
 |area|string|null: false|
@@ -131,7 +132,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category_id|references|null: false, foreign_key: true|
-|shipping_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |seller_user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
