@@ -40,7 +40,7 @@ Things you may want to cover:
 |status|string|null: false|
 |delected_at|string|null: false|
 ### Association
-- has_many :items
+- has_many :items, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :points, dependent: :destroy
@@ -136,6 +136,7 @@ Things you may want to cover:
 |seller_user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |i_text|text|null: false|
+|size|text|null: false|
 |condition|integer|null: false|
 |price|integer|null: false|
 |trading_status|integer|null: false|
@@ -198,17 +199,6 @@ Things you may want to cover:
 ### Association
 - has_many :brands
 
-## sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|path|text|null: false|
-|kind|string|null: false|
-|ancestry|strimg||
-### Association
-- has_many :items
-- has_many :category_sizes
-- has_many :categories, through: :category_sizes
-- has_ancestry
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -219,14 +209,4 @@ Things you may want to cover:
 ### Association
 - has_many :brands
 - has_many :items
-- has_one :category_size
-- has_one :size ,thorough: :category_size
 
-## category_sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
-### Association
-- belongs_to :category
-- belongs_to :size
