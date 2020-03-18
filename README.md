@@ -45,7 +45,7 @@ Things you may want to cover:
 - has_many :comments, dependent: :destroy
 - has_many :points, dependent: :destroy
 - has_many :social_providers, dependent: :destroy
-- has_one :deliver_providers, dependent: :destroy
+- has_one :deliver_adresses, dependent: :destroy
 - has_many :wallets, dependent: :destroy
 - has_many :reviews, dependent: :destroy
 - has_many :orders, dependent: :destroy
@@ -59,8 +59,7 @@ Things you may want to cover:
 |family_name_kana|string|null: false|
 |zip_code|integer|null: false|
 |city|string|null: false|
-|address1|string|null: false|
-|address2|string|null: false|
+|address|string|null: false|
 |telephone|string|null: false|
 ### Association
 - belongs_to :user
@@ -149,8 +148,8 @@ Things you may want to cover:
 - has_many :comments dependent: :destroy
 - has_many :messages dependent: :destroy
 - has_one :shipping
-- has_many :review
-- has_many :item_image dependent: :destroy
+- has_many :reviews
+- has_many :item_images dependent: :destroy
 - has_one :order
 
 ## messagesテーブル
@@ -185,7 +184,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category_id|references|null: false,FK: true|
-|brand_id|references|null: false,FK: true|
+|brand_groups_id|references|null: false,FK: true|
 |name|string|null: false|
 ### Asssociation
 - has_many :items
