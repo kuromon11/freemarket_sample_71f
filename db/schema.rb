@@ -10,12 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_102917) do
+ActiveRecord::Schema.define(version: 2020_03_23_081022) do
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "category_id_id", null: false
+    t.bigint "brand_groups_id_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_groups_id_id"], name: "index_brands_on_brand_groups_id_id"
+    t.index ["category_id_id"], name: "index_brands_on_category_id_id"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "path_id", null: false
+    t.bigint "name_id", null: false
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["name_id"], name: "index_categories_on_name_id"
+    t.index ["path_id"], name: "index_categories_on_path_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "family_name", null: false
-    t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
     t.string "first_name", null: false
     t.string "birth_year", null: false
@@ -26,16 +46,6 @@ ActiveRecord::Schema.define(version: 2020_03_19_102917) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "d_family_name", null: false
-    t.string "d_family_name_kana", null: false
-    t.string "d_first_name", null: false
-    t.string "d_first_name_kana", null: false
-    t.integer "zip_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "address", null: false
-    t.string "apartment"
-    t.integer "telephone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
