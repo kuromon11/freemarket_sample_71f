@@ -8,4 +8,8 @@ Rails.application.routes.draw do
       get :creditcard
     end
   end
+
+  
+  resources :items, only: [:new, :show]
+
 end
