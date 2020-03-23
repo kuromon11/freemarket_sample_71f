@@ -105,15 +105,15 @@
                   コメントする
         %ul.linKs
           %li
-            %a{href: "#"}
+            = link_to "#" do
               %i.fa.fa-angle-left
               %span
               前の商品
           %li
-            %a{href: "#"}
+            =link_to "#" do
               %span 後ろの商品
               %i.fa.fa-angle-right
         .relatedItems
-          %a{href: "#"} ベビー・キッズをもっと見る
+          =link_to "#" ,"ベビー・キッズをもっと見る"
           .productLists
   = render "footer"
