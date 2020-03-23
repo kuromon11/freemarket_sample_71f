@@ -17,6 +17,8 @@
           = link_to 'ブランド','/'
       .box__right
         - if user_signed_in?
+          %li.box__right__login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
           %li.box__right__new
             = link_to 'マイページ', "#"
         - else

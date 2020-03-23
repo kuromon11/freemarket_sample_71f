@@ -42,7 +42,7 @@
           .field__label--right
             必須
         .field__input
-          = f.text_field :birth_year, autofocus: true, placeholder: '例) 1997/03/10'
+          = f.text_field :birth_year, autofocus: true, placeholder: '例) 19970310'
       .field
         .field__label
           .field__label--left
@@ -70,7 +70,7 @@
           .field__label--right
             必須
         .field__input
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: ''
+          = f.password_field :password_confirmation, autocomplete: "new-password"
       .field
         .field__label
           .field__label--left
@@ -143,7 +143,7 @@
           = f.text_field :apartment, autofocus: true, placeholder: 'ハイフンなし'
       .actions
         = f.submit "登録する" , class: "submit"
-  .sign-up__footer
+  .sign-up__footer 
     .terms
       .terms__content
         = link_to "プライバシーポリシー", "#", class: 'login-btn'
