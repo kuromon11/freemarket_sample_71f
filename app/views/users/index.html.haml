@@ -19,10 +19,10 @@
         %ul.content__right__mypagebuy__tabs
           %li.content__right__mypagebuy__tabs__left
             %h4
-              %a{"data-taggle" => "tab", :href => "mypagebuy-tabs-transaction-now"} 取引中
+              =link_to "取引中", "#"
           %li.content__right__mypagebuy__tabs__right
             %h4
-              %a{"data-taggle" => "tab", :href => "mypagebuy-tabs-transaction-old"} 過去の取引
+              =link_to "過去の取引", "#"
         .content__right__mypagebuy__tabcontent
           %ul.content__right__mypagebuy__tabcontent__contents
             %li 取引中の商品がありません
