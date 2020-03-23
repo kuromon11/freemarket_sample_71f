@@ -76,3 +76,4 @@ gem 'haml-rails'
 gem 'devise'
 gem 'paranoia'
 gem "font-awesome-sass"
+gem 'ancestry'

@@ -57,6 +57,27 @@ ActiveRecord::Schema.define(version: 2020_03_23_074704) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_shippings_on_item_id"
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "category_id_id", null: false
+    t.bigint "brand_groups_id_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_groups_id_id"], name: "index_brands_on_brand_groups_id_id"
+    t.index ["category_id_id"], name: "index_brands_on_category_id_id"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "path_id", null: false
+    t.bigint "name_id", null: false
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["name_id"], name: "index_categories_on_name_id"
+    t.index ["path_id"], name: "index_categories_on_path_id"
+
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,4 +101,5 @@ ActiveRecord::Schema.define(version: 2020_03_23_074704) do
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
   add_foreign_key "shippings", "items"
+  
 end

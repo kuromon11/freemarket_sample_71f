@@ -16,19 +16,20 @@
             / 画像4枚挿入
             .item-new-images__block__container
               .item-new-images__block__container__image
-                = image_tag "logo.png", width: "100px", height: "80px"
+                =render partial: 'form'
+                -# = image_tag "icon/icon_camera.png", width: "100px", height: "80px"
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                = image_tag "logo.png", width: "100px", height: "80px"
+                = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                = image_tag "logo.png", width: "100px", height: "80px"
+                = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                = image_tag "logo.png", width: "100px", height: "80px"
+                = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
                 %p.item-new-images__block__container__image__delete
                   削除
         / 商品の概要
