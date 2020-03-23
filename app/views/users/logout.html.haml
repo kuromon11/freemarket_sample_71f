@@ -14,4 +14,4 @@
       .content__right2__btn
         %form.content__right2__btn__inner{:action => "https://www.mercari.com/jp/logout/", :method => "POST", :novalidate => "novalidate"}
           .content__right2__btn__inner__content
-            =link_to "ログアウト", root_path
+            =link_to "ログアウト", destroy_user_session_path, method: :delete 
