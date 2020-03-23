@@ -1,0 +1,17 @@
+%main
+  .content
+    .left
+      .mypage
+        %h2.mypage-head 設定
+        %ul.mypage-list
+          %li
+            .mypage-list-item
+              =link_to "クレジットカード登録", creditcard_users_path, method: :get
+          %li
+            .mypage-list-item
+              =link_to "ログアウト", logout_users_path, method: :get
+    .right2
+      .right2-content
+        %form.l-single-inner{:action => "https://www.mercari.com/jp/logout/", :method => "POST", :novalidate => "novalidate"}
+          .right2-single-content
+            =link_to "ログアウト", root_path

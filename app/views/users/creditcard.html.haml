@@ -1,0 +1,81 @@
+%main
+  .content
+    .left
+      .mypage
+        %h2.mypage-head 設定
+        %ul.mypage-list
+          %li
+            .mypage-list-item
+              =link_to "クレジットカード登録", creditcard_users_path, method: :get
+          %li
+            .mypage-list-item
+              =link_to "ログアウト", logout_users_path, method: :get
+    .right3
+      %session.card
+        .card-head-color
+          %h2.card-head クレジットカード情報入力
+        .registrationform
+          = form_with local: :true do |form|
+            .singlecontent
+              .formgroup1
+                = form.label :カード番号, class: 'payment_card_no'
+                %span.form-require 必須
+                = form.text_field :name, class: 'payment_card_no1', placeholder: '半角数字のみ'
+
+                %ul#card-no-error-wrapper.has-error-text
+                %ul.signup-card-list
+                  %li
+                  = image_tag src="logo.png", size: "49x20"
+                  %li
+                  = image_tag src="logo.png", size: "49x20"
+                  %li
+                  = image_tag src="logo.png", size: "49x20"
+              .formgroup2
+                = form.label :有効期限, class: 'payment_card_no'
+                %span.form-require 必須
+                = form.text_field :name, class: 'payment_card_no2', placeholder: '月/年を入力してください' 
+
+              .formgroup3
+                = form.label :セキュリティコード, class: 'payment_card_no'
+                %span.form-require 必須
+                = form.text_field :name, class: 'payment_card_no3', placeholder: 'カード背面4桁もしくは3桁の番号'
+              
+              .formgroup4
+                =link_to "登録する", destroy_user_session_path, method: :delete
+
+              -#     %br
+              -#     .select-wrap-half
+              -#       %select#payment_card_expire_mm.select-default
+              -#         %option{:value => "01"} 01
+              -#         %option{:value => "02"} 02
+              -#         %option{:value => "03"} 03
+              -#         %option{:value => "04"} 04
+              -#         %option{:value => "05"} 05
+              -#         %option{:value => "06"} 06
+              -#         %option{:value => "07"} 07
+              -#         %option{:value => "08"} 08
+              -#         %option{:value => "09"} 09
+              -#         %option{:value => "10"} 10
+              -#         %option{:value => "11"} 11
+              -#         %option{:value => "12"} 12
+              -#       %i.icon-arrow-bottom
+              -#       %span 月
+
+              -#       %select#payment_card_expire_yy.select-default
+              -#         %option{:value => "20"} 20
+              -#         %option{:value => "21"} 21
+              -#         %option{:value => "22"} 22
+              -#         %option{:value => "23"} 23
+              -#         %option{:value => "24"} 24
+              -#         %option{:value => "25"} 25
+              -#         %option{:value => "26"} 26
+              -#         %option{:value => "27"} 27
+              -#         %option{:value => "28"} 28
+              -#         %option{:value => "29"} 29
+              -#         %option{:value => "30"} 30
+              -#       %i.icon-arrow-bottom
+              -#       %span 年
+              -# .formgroup
+              -#   = form.label :セキュリティコード, class: 'payment_card_no' 
+              -#   %span.form-require 必須 
+              -#   = form.text_field :name, class: 'payment_card_no', placeholder: 'コードを入力してください'
