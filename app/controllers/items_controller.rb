@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
+    Item.create(item_params)
   end
 
   def create
