@@ -1,6 +1,7 @@
 .item-new-header
   .item-new-header__logo
-    .item-new-header__logo__image
+    = link_to root_path do
+      = image_tag "logo.png", width: "170px", height: "50px", class: "item-new-header__logo__image"
 .item-new-main
   .item-new-main__wrapper
     .item-new-contents
@@ -124,5 +125,6 @@
 .item-new-footer
   .item-new-footer__logo
     .item-new-footer__logo__image
-      = image_tag "logo-white.png", width: "170px", height: "50px"
+      = link_to root_path do
+        = image_tag "logo-white.png", width: "170px", height: "50px"
     %p.item-new-footer__logo__copyright © FURIMA
