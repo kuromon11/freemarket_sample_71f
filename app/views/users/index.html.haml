@@ -1,30 +1,30 @@
 %main
   .content
-    .left
-      .mypage
+    .content__left
+      .content__left__mypage
         %h2.mypage-head 設定
         %ul.mypage-list
           %li
-            .mypage-list-item
+            .content__left__mypage__listitem
               =link_to "クレジットカード登録", creditcard_users_path, method: :get
           %li
-            .mypage-list-item
+            .content__left__mypage__listitem
               =link_to "ログアウト", logout_users_path, method: :get
-    .right
-      %section.mypageicon
+    .content__right
+      .content__right__mypageicon
         %figure
           = image_tag src="member_photo_noimage_thumb.png", size: "49x49"   
         %h5.bold Masaaki Kamegai
-      %section.mypagebuy
-        %ul.mypagebuy-tabs
-          %li.mypagebuy-tabs-left
+      .content__right__mypagebuy
+        %ul.content__right__mypagebuy__tabs
+          %li.content__right__mypagebuy__tabs__left
             %h4
               %a{"data-taggle" => "tab", :href => "mypagebuy-tabs-transaction-now"} 取引中
-          %li.mypagebuy-tabs-right
+          %li.content__right__mypagebuy__tabs__right
             %h4
               %a{"data-taggle" => "tab", :href => "mypagebuy-tabs-transaction-old"} 過去の取引
-        .tab-content
-          %ul#mypagebuy-tabs-transaction-now.mypage-item-list.tab-pane
+        .content__right__mypagebuy__tabcontent
+          %ul.content__right__mypagebuy__tabcontent__contents
             %li 取引中の商品がありません
-          %ul#mypagebuy-tabs-transaction-old.mypage-item-list.tab-pane
+          %ul.content__right__mypagebuy__tabcontent__contents
             %li 過去に取引した商品がありません

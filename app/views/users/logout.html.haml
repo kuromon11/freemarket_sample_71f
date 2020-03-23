@@ -1,17 +1,17 @@
 %main
   .content
-    .left
-      .mypage
+    .content__left
+      .content__left__mypage
         %h2.mypage-head 設定
         %ul.mypage-list
           %li
-            .mypage-list-item
+            .content__left__mypage__listitem
               =link_to "クレジットカード登録", creditcard_users_path, method: :get
           %li
-            .mypage-list-item
+            .ontent__left__mypage__listitem
               =link_to "ログアウト", logout_users_path, method: :get
-    .right2
-      .right2-content
-        %form.l-single-inner{:action => "https://www.mercari.com/jp/logout/", :method => "POST", :novalidate => "novalidate"}
-          .right2-single-content
+    .content__right2
+      .content__right2__btn
+        %form.content__right2__btn__inner{:action => "https://www.mercari.com/jp/logout/", :method => "POST", :novalidate => "novalidate"}
+          .content__right2__btn__inner__content
             =link_to "ログアウト", root_path
