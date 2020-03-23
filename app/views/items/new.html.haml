@@ -124,7 +124,6 @@
                 %p.item-new-btn-content__sell__font 出品する
 .item-new-footer
   .item-new-footer__logo
-    .item-new-footer__logo__image
-      = link_to root_path do
-        = image_tag "logo-white.png", width: "170px", height: "50px"
+    = link_to root_path do
+      = image_tag "logo-white.png", width: "170px", height: "50px", class: "item-new-footer__logo__image"
     %p.item-new-footer__logo__copyright © FURIMA
