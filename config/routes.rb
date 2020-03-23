@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#index'
+  root 'items#index'
 
-  resource :users do
+  resources :users , only:[:index] do
     collection do
       get :logout 
       get :creditcard
