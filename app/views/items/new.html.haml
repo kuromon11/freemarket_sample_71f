@@ -5,7 +5,7 @@
 .item-new-main
   .item-new-main__wrapper
     .item-new-contents
-      = form_with local: true do |form|
+      = form_with model: @item, local: true do |form|
         / 画像
         .item-new-images
           .item-new-images__block
@@ -123,10 +123,10 @@
               / 販売利益 算出
             / ボタン
             .item-new-btn-content
-              =link_to root_path , class: "item-new-btn-content__form" do
+              -# =link_to root_path , class: "item-new-btn-content__form" do
                 -# .item-new-btn-content__form--sell
                 -#   %p.item-new-btn-content__form--font 出品する
-                = form.submit "出品する", class:"item-new-btn-content__form--sell"
+              = form.submit "出品する", class:"item-new-btn-content__form"
 
 .item-new-footer
   .item-new-footer__logo
