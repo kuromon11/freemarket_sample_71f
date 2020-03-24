@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_03_23_101700) do
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "customer_id"
-    t.string "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-ActiveRecord::Schema.define(version: 2020_03_19_032129) do
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "family_name", null: false
@@ -48,5 +39,5 @@ ActiveRecord::Schema.define(version: 2020_03_19_032129) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-  add_foreign_key "messages", "users"
+
 end
