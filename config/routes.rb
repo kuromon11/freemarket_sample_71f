@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   
-  resources :items, only: [:new, :show]
-
+  resources :items, only: [:new, :show] do
+    member do
+      get :purchase
+    end
+  end
 end

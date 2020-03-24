@@ -1,4 +1,4 @@
-items{
+.items{
   .breadCrumbs{
     width: 100%;
     border-top: 1px solid #eee;
@@ -292,10 +292,6 @@ items{
   li{
     display: list-item;
     text-align: -webkit-match-parent;
-  }
-  img{
-    width: 100%;
-    vertical-align: bottom;
   }
 
   tr{
