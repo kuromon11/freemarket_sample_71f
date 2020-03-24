@@ -17,7 +17,7 @@ FactoryBot.define do
     zip_code              {"8690416"}
     prefecture            {"熊本県"}
     city                  {"宇土市松山町"}
-    address               {"81"}
+    address               {"3103-81"}
   end
 
 end
