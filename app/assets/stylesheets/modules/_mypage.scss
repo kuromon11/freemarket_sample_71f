@@ -1,223 +1,103 @@
-.main{
-  background-color: whitesmoke;
-  .content{
-    height: 100vh;
-    width: 1020px;
-    margin: 40px auto 0;
-    &__left{
-      background-color: white;
-      float: left;
-      width: 280px;
-      height: 100%;
-      margin: 0 40px 0 0;
-      &__mypage{        
-        .mypage-list{
-          margin: 8px 0 0;
-          list-style: none;
-          padding-inline-start: 0px;
-          li{
-            border-style: solid;
-            border-width: 0;
-            &__listitem{
-              position: relative;
-              display: block;
-              min-height: 20px;
-              padding: 16px;
-              background-color: rgb(168, 164, 164);
-              font-size: 14px;
-              color: black;
-              border: solid 0.5px #cccccc;
-            }
-          }
-        }
-      }
-    }
-    &__right{
-      float: right;
-      width: 700px;
-      height: 640px;
-      background-color: white;
-      &__mypageicon{
-        height: 200px;
-        text-align: center;
-        padding: 20px 20px 20px 20px;
-        position: relative;
-        background-image: image();
-        figure{
-          width: 10%;
-          padding-left: 255px;
-        }
-      }
-      &__mypagebuy{
-        width: 700px;
-        height: 400px;
-        &__tabs{
-          border: 0;
-          background-color: red;
-          display: flex;
-          list-style: none;
-          padding-inline-start: 0px;
-          text-align: center;
-          margin: 0;
-          &__left{
-            width: 50%;
-            background-color: red;
-          }
-          &__right{
-            width: 50%;
-            background-color: royalblue;
-          }
-        }
-        &__tabcontent{
-          height: 400px;
-          background-color:gainsboro;
-          &__contents{
-            padding-inline-start: 0px;
-            list-style: none;
-            text-align: center;
-            margin: 0 auto;
-          }
-        }
-      }
-    }
-    // ここからlogout.html.haml
-    &__right2{
-      background-color: whitesmoke;
-      float: right;
-      width: 700px;
-      height: 100%;
-      &__btn{
-        margin: 0;
-        height: 200px;
+.users{
+
+  .main{
+    background-color: whitesmoke;
+    .content{
+      height: 100vh;
+      width: 1020px;
+      margin: 40px auto 0;
+      &__left{
         background-color: white;
-        &__inner{
-          padding: 64px;
-          border-top: 1px solid #f5f5f5;
-          &__content{
-            max-width: 320px;
-            margin: 0 auto;
-            background-color: #3CCACE;
-            border: 1px solid #3CCACE;
-            color: white;
-            display: block;
-            width: 100%;
-            line-height: 48px;
-            font-size: 14px;
-            cursor: pointer;
-            text-align: center;
+        float: left;
+        width: 280px;
+        height: 100%;
+        margin: 0 40px 0 0;
+        &__mypage{        
+          .mypage-list{
+            margin: 8px 0 0;
+            list-style: none;
+            padding-inline-start: 0px;
+            li{
+              border-style: solid;
+              border-width: 0;
+              &__listitem{
+                position: relative;
+                display: block;
+                min-height: 20px;
+                padding: 16px;
+                background-color: rgb(168, 164, 164);
+                font-size: 14px;
+                color: black;
+                border: solid 0.5px #cccccc;
+              }
+            }
           }
         }
       }
-    }
-    // ここからcreditcard.html.haml
-    .content__right3{
-      float: right;
-      width: 700px;
-      height: 100%;
-      &__card{
-        margin: 0;
-        &__headcolor{
-          background-color: white;
-          margin-bottom: 2px;
-          &__text{
-            font-size: 24px;
-            padding: 8px 24px;
-            text-align: center;
+      &__right{
+        float: right;
+        width: 700px;
+        height: 640px;
+        background-color: white;
+        &__mypageicon{
+          height: 200px;
+          text-align: center;
+          padding: 20px 20px 20px 20px;
+          position: relative;
+          background-image: image();
+          figure{
+            width: 10%;
+            padding-left: 255px;
           }
         }
-        &__registrationform{
-          padding: 24px 16px 40px;
+        &__mypagebuy{
+          width: 700px;
+          height: 400px;
+          &__tabs{
+            border: 0;
+            background-color: red;
+            display: flex;
+            list-style: none;
+            padding-inline-start: 0px;
+            text-align: center;
+            margin: 0;
+            &__left{
+              width: 50%;
+              background-color: red;
+            }
+            &__right{
+              width: 50%;
+              background-color: royalblue;
+            }
+          }
+          &__tabcontent{
+            height: 400px;
+            background-color:gainsboro;
+            &__contents{
+              padding-inline-start: 0px;
+              list-style: none;
+              text-align: center;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+      // ここからlogout.html.haml
+      &__right2{
+        background-color: whitesmoke;
+        float: right;
+        width: 700px;
+        height: 100%;
+        &__btn{
+          margin: 0;
+          height: 200px;
           background-color: white;
-          &__content{
-            max-width: 343px;
-            margin: 0 auto;
-            &__formgroup1{
-              .payment_card_no{
-                font-weight: 600;
-              }
-              .payment_card_no1{
-                width: 300px;
-                height: 38px;
-                margin: 8px 0 0;
-                padding: 10px 16px 8px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background-color: white;
-                line-height: 1.5;
-                font-size: 16px;
-              }
-              .form-require{
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: white;
-                background-color: red;
-                font-size: 12px;
-                vertical-align: top;
-              }
-              .signup-card-list{
-                margin: 8px 0 0;
-                font-size: 0;
-                display: flex;
-                padding-inline-start: 0px;
-                width: 49px;
-              }
-            }
-            &__formgroup2{
-              margin: 24px 0 0;
-              .payment_card_no{
-                font-weight: 600;
-              }
-              .form-require{
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: white;
-                background-color: red;
-                font-size: 12px;
-                vertical-align: top;
-              }
-              .payment_card_no2{
-                width: 300px;
-                height: 38px;
-                margin: 8px 0 0;
-                padding: 10px 16px 8px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background-color: white;
-                line-height: 1.5;
-                font-size: 16px;
-              }
-            }
-            &__formgroup3{
-              margin: 24px 0 0;
-              .payment_card_no{
-                font-weight: 600;
-              }
-              .form-require{
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: white;
-                background-color: red;
-                font-size: 12px;
-                vertical-align: top;
-              }
-              .payment_card_no3{
-                width: 300px;
-                height: 38px;
-                margin: 8px 0 0;
-                padding: 10px 16px 8px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background-color: white;
-                line-height: 1.5;
-                font-size: 16px;
-              }
-            }
-            &__formgroup4{
-              margin: 24px 0 0;
+          &__inner{
+            padding: 64px;
+            border-top: 1px solid #f5f5f5;
+            &__content{
               max-width: 320px;
+              margin: 0 auto;
               background-color: #3CCACE;
               border: 1px solid #3CCACE;
               color: white;
@@ -227,6 +107,129 @@
               font-size: 14px;
               cursor: pointer;
               text-align: center;
+            }
+          }
+        }
+      }
+      // ここからcreditcard.html.haml
+      .content__right3{
+        float: right;
+        width: 700px;
+        height: 100%;
+        &__card{
+          margin: 0;
+          &__headcolor{
+            background-color: white;
+            margin-bottom: 2px;
+            &__text{
+              font-size: 24px;
+              padding: 8px 24px;
+              text-align: center;
+            }
+          }
+          &__registrationform{
+            padding: 24px 16px 40px;
+            background-color: white;
+            &__content{
+              max-width: 343px;
+              margin: 0 auto;
+              &__formgroup1{
+                .payment_card_no{
+                  font-weight: 600;
+                }
+                .payment_card_no1{
+                  width: 300px;
+                  height: 38px;
+                  margin: 8px 0 0;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background-color: white;
+                  line-height: 1.5;
+                  font-size: 16px;
+                }
+                .form-require{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: white;
+                  background-color: red;
+                  font-size: 12px;
+                  vertical-align: top;
+                }
+                .signup-card-list{
+                  margin: 8px 0 0;
+                  font-size: 0;
+                  display: flex;
+                  padding-inline-start: 0px;
+                  width: 49px;
+                }
+              }
+              &__formgroup2{
+                margin: 24px 0 0;
+                .payment_card_no{
+                  font-weight: 600;
+                }
+                .form-require{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: white;
+                  background-color: red;
+                  font-size: 12px;
+                  vertical-align: top;
+                }
+                .payment_card_no2{
+                  width: 300px;
+                  height: 38px;
+                  margin: 8px 0 0;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background-color: white;
+                  line-height: 1.5;
+                  font-size: 16px;
+                }
+              }
+              &__formgroup3{
+                margin: 24px 0 0;
+                .payment_card_no{
+                  font-weight: 600;
+                }
+                .form-require{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: white;
+                  background-color: red;
+                  font-size: 12px;
+                  vertical-align: top;
+                }
+                .payment_card_no3{
+                  width: 300px;
+                  height: 38px;
+                  margin: 8px 0 0;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background-color: white;
+                  line-height: 1.5;
+                  font-size: 16px;
+                }
+              }
+              &__formgroup4{
+                margin: 24px 0 0;
+                max-width: 320px;
+                background-color: #3CCACE;
+                border: 1px solid #3CCACE;
+                color: white;
+                display: block;
+                width: 100%;
+                line-height: 48px;
+                font-size: 14px;
+                cursor: pointer;
+                text-align: center;
+              }
             }
           }
         }

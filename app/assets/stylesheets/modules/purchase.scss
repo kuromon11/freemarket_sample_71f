@@ -1,0 +1,213 @@
+.a--body {
+  position: relative;
+  min-height: 100%;
+  background: #F5F5F5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  .a--container {
+    .a--header {
+      height: 128px;
+      text-align: center;
+      h1 {
+        margin: 40px 0 0;
+        display: inline-block;
+        a {
+          width: 185px;
+          height: 49px;
+          line-height: 49px;
+          display: inline-block;
+          margin: 0 8px 0 0;
+          .furima--logo {
+            width: 185px;
+            height: 49px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .a--main {
+      display: block;
+      &__container{
+        width: 700px;
+        margin: 0 auto;
+        background: #fff;
+        &__head  {
+          font-size: 22px;
+          padding: 32px;
+          line-height: 1.5;
+          text-align: center;
+          font-weight: 600;
+        }
+        .buy--content {
+          margin: 0;
+          padding: 32px 16px;
+          border-top: 1px solid #F5F5F5;
+          &__inner {
+            max-width: 343px;
+            margin: 0 auto;
+            &__item {
+              display: flex;
+              &__image {
+                height: 80px;
+                width: 80px;
+                min-width: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .a-image {
+                  width: 80px;
+                }
+              }
+              &__detail {
+                margin-left: 16px;
+                &__name {
+                  font-size: 14px;
+                  margin: 0;
+                  padding: 0 0 8px;
+                  line-height: 1.5;
+                  text-align: left;
+                }
+                &__price {
+                  margin: 0;
+                  text-align: left;
+                  font-size: 15px;
+                  font-weight: 600;
+                  .item--shipping--fee {
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .buy--content {
+          &__inner {
+            &__form {
+              &__table {
+                margin: 0;
+                display: table;
+                border-collapse: collapse;
+                width: 100%;
+                &__box {
+                  border: 0;
+                  font-size: 30px;
+                  display: table-row;
+                  font-weight: 600;
+                  &__pay {
+                    text-align: left;
+                    font-size: 18px;
+                    display: table-cell;
+                    padding: 0;
+                  }
+                  &__price {
+                    display: table-cell;
+                    padding: 0;
+                    text-align: right;
+                  }
+                }
+              }
+              &__accordion {
+                color: #888;
+                margin: 24px 0 32px;
+                &__parent {
+                  &__point {
+                    text-align: left;
+                    position: relative;
+                    &__checkbox {
+                      background: #ccc;
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      z-index: 1;
+                      width: 20px;
+                      height: 20px;
+                      border-radius: 2px;
+                      transform: translate(0, -50%);
+                    }
+                    label {
+                      position: relative;
+                      z-index: 2;
+                      padding: 0 0 0 28px;
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+              .buy--content {
+                &__inner {
+                  &__clearfix {
+                    &__left {
+                      margin: 0;
+                      font-size: 14px;
+                      float: left;
+                      font-weight: 600;
+                    }
+                    a {
+                      display: block;
+                      text-align: right;
+                      color: #0099E8;
+                      text-decoration: none;
+                      clear: both;
+                    }
+                  }
+                  &__info {
+                    line-height: 1.5;
+                    text-align: left;
+                    margin: 8px 0 0;
+                    font-size: 14px;
+                  }
+                  &__logo {
+                    img {
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+              .buy--content {
+                &__button {
+                  background: #EA352D;
+                  border: 1px solid #EA352D;
+                  color: #fff;
+                  display: block;
+                  width: 100%;
+                  line-height: 48px;
+                  font-size: 14px;
+                  cursor: pointer;
+                  font-weight: 600;
+                  font-family: inherit;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .sign-up__footer{
+      margin: 0 auto;
+      background-color: whitesmoke;
+      height: 200px;
+      padding-top: 20px;
+      width: 700px;
+      .terms{
+        display: flex;
+        justify-content: center;
+        &__content{
+          margin: 10px 20px 0 0;
+          font-size: 13px;
+          a{
+            text-decoration: none;
+            color: dimgray;
+          }
+        }
+      }
+      .image{
+        background-color: whitesmoke;
+        text-align: center;
+        padding: 30px 0;
+        margin: 0;
+      }
+    }
+  }
+}
