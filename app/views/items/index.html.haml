@@ -94,12 +94,12 @@
       %h2.head ピックアップカテゴリー
       .productBox
         .productHead
-          = link_to "#" do
+          = link_to "/items/:id(.:format)" do
             = ""
             %h3.title 新規投稿商品
         .productLists
           .productList 
-            = link_to "#" do
+            = link_to "/" do
               = ""
               %figure.productList--img
                 =image_tag "pict/food_curryrice_saffron.png", class:"image"
