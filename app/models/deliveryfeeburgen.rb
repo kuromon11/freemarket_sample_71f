@@ -1,4 +1,4 @@
-class Deliverycharge < ActiveHash::Base
+class Deliveryfeeburgen < ActiveHash::Base
   include ActiveHash::Associations
   self.data = [
     { id: 1, value: '送料込み(出品者負担)' },

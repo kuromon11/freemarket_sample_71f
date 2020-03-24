@@ -6,5 +6,6 @@ class Itemcondition < ActiveHash::Base
     { id: 3, value: '目立った傷や汚れなし' },
     { id: 4, value: 'やや傷や汚れあり' },
     { id: 5, value: '傷や汚れあり' }
+    { id: 6, value: '全体的に状態が悪い' }
   ]
 end
