@@ -5,13 +5,15 @@
       .content__left
         .content__left__mypage
           %h2.mypage-head 設定
-          %ul.mypage-list
-            %li
-              .content__left__mypage__listitem
-                =link_to "クレジットカード登録", creditcard_users_path, method: :get
-            %li
-              .ontent__left__mypage__listitem
-                =link_to "ログアウト", logout_users_path, method: :get
+          .content__left__mypage__list
+            .content__left__mypage__list__item
+              =link_to "クレジットカード登録", creditcard_users_path, method: :get
+            .content__left__mypage__list__item
+              =link_to "サンプル", "#"
+            .content__left__mypage__list__item
+              =link_to "サンプル", "#"
+            .content__left__mypage__list__item
+              =link_to "ログアウト", logout_users_path, method: :get
       .content__right3
         .content__right3__card
           .content__right3__card__headcolor

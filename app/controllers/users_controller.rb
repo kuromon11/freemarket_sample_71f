@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @nickname = current_user.nickname
   end
 
 
