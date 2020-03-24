@@ -54,6 +54,8 @@
                 %label.item-new-overview__block__select__label__title カテゴリー
                 %span.item-new-overview__block__item-select__label__required.item-new-form 必須
               = form.text_field :カテゴリー選択, placeholder: "カテゴリー選択", class: "item-new-overview__block__select__content"
+              -# 参考
+              -# = form.collection_select :item_condition, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
             / ブランド
             .item-new-overview__block__brand
               .item-new-overview__block__brand__label
@@ -64,7 +66,6 @@
               .item-new-overview__block__select__label
                 %label.item-new-overview__block__select__label__title 商品の状態
                 %span.item-new-overview__block__item-select__label__required.item-new-form 必須
-              -# = form.text_field :商品の状態, placeholder: "商品の状態", class: "item-new-overview__block__select__content"
               = form.collection_select :item_condition, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
         / 配送について===================================
         .item-new-delivery
@@ -75,28 +76,24 @@
               .item-new-delivery__block__select__label
                 %label.item-new-delivery__block__select__label__title 配送料の負担
                 %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              -# = form.text_field :発送料の負担, placeholder: "発送料の負担", class: "item-new-delivery__block__select__content"
               = form.collection_select :shipping_fee_burgen, Deliveryfeeburgen.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
             / 配送方法
             .item-new-delivery__block__select
               .item-new-delivery__block__select__label
                 %label.item-new-delivery__block__select__label__title 配送方法
                 %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              -# = form.text_field :発送方法, placeholder: "発送方法", class: "item-new-delivery__block__select__content"
               = form.collection_select :shipping_service, Deliveryservice.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
             / 発送元の地域
             .item-new-delivery__block__select
               .item-new-delivery__block__select__label
                 %label.item-new-delivery__block__select__label__title 発送元の地域
                 %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              -# = form.text_field :発送元の地域, placeholder: "発送元の地域", class: "item-new-delivery__block__select__content"
               = form.collection_select :shipping_area, Deliveryarea.all, :id, :name, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
             / 発送日数
             .item-new-delivery__block__select
               .item-new-delivery__block__select__label
                 %label.item-new-delivery__block__select__label__title 発送日数
                 %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              -# = form.text_field :発送日数, placeholder: "発送日数", class: "item-new-delivery__block__select__content"
               = form.collection_select :shipping_handing_time, Deliveryhandingtime.all, :id, :value, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
         / 価格==================================================
         .item-new-price
