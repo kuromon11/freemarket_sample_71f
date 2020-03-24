@@ -5,26 +5,29 @@
       .content__left
         .content__left__mypage
           %h2.mypage-head 設定
-          %ul.mypage-list
-            %li
-              .content__left__mypage__listitem
-                =link_to "クレジットカード登録", creditcard_users_path, method: :get
-            %li
-              .content__left__mypage__listitem
-                =link_to "ログアウト", logout_users_path, method: :get
+          .content__left__mypage__list
+            .content__left__mypage__list__item
+              =link_to "クレジットカード登録", creditcard_users_path
+            .content__left__mypage__list__item
+              =link_to "サンプル", "#"
+            .content__left__mypage__list__item
+              =link_to "サンプル", "#"
+            .content__left__mypage__list__item
+              =link_to "ログアウト", logout_users_path
       .content__right
         .content__right__mypageicon
           %figure
             = image_tag "member_photo_noimage_thumb.png", height: "49px", width:"50%"   
-          %h5.bold Masaaki Kamegai
+          %h5.bold
+            = @nickname
         .content__right__mypagebuy
           %ul.content__right__mypagebuy__tabs
             %li.content__right__mypagebuy__tabs__left
               %h4
-                =link_to "取引中", "#"
+                =link_to "取引中", "#", class:"rightlink"
             %li.content__right__mypagebuy__tabs__right
               %h4
-                =link_to "過去の取引", "#"
+                =link_to "過去の取引", "#", class:"rightlink"
           .content__right__mypagebuy__tabcontent
             %ul.content__right__mypagebuy__tabcontent__contents
               %li 取引中の商品がありません
