@@ -77,3 +77,4 @@ gem 'devise'
 gem 'paranoia'
 gem "font-awesome-sass"
 gem 'ancestry'
+gem 'active_hash'
