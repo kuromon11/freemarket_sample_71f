@@ -17,6 +17,6 @@ class User < ApplicationRecord
   validates :zip_code, presence: true, format: { with:/\A\d{7}\z/}
   validates :prefecture, presence: true, format: {with:/\A[一-龥]+\z/}
   validates :city, presence: true, format: { with:/\A[一-龥]+\z/}
-  validates :address, presence: true, format: { with:/\A[0-9]+\z/}
   validates :password, length: { minimum: 7 }
+  validates :address, presence: true
 end
