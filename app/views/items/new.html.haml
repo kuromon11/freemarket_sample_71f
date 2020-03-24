@@ -65,6 +65,7 @@
                 %label.item-new-overview__block__select__label__title 商品の状態
                 %span.item-new-overview__block__item-select__label__required.item-new-form 必須
               = form.text_field :商品の状態, placeholder: "商品の状態", class: "item-new-overview__block__select__content"
+              -# = form.collection_select :items_condition, Itemcondition.all, :id, :name
         / 配送について===================================
         .item-new-delivery
           .item-new-delivery__block
@@ -87,7 +88,8 @@
                 %label.item-new-delivery__block__select__label__title 発送元の地域
                 %span.item-new-delivery__block__select__label__required.item-new-form 必須
               = form.text_field :発送元の地域, placeholder: "発送元の地域", class: "item-new-delivery__block__select__content"
-              -# = form.collection_select :deliveryarea_id, Deliveryarea.all, :id, :name
+              -# = form.collection_select :shippings_area, Deliveryarea.all, :id, :name
+              -# = f.collection_select :shipping_origin, Prefecture.all, :name, :name, { prompt: '--' }, class: 'select-default'
             / 発送日数
             .item-new-delivery__block__select
               .item-new-delivery__block__select__label
