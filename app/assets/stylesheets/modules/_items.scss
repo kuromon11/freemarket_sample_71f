@@ -236,8 +236,9 @@
                 margin: 0 auto;
                 background-color: #3CCACE;
                 border-radius: 5px;
-              }
-              &--font{
+                display: block;
+                width: 100%;
+                cursor: pointer;
                 line-height: 50px;
                 text-align: center;
                 font-size: 20px;

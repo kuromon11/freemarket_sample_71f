@@ -123,9 +123,11 @@
               / 販売利益 算出
             / ボタン
             .item-new-btn-content
-              =link_to "#" , class: "item-new-btn-content__form" do
-                .item-new-btn-content__form--sell
-                  %p.item-new-btn-content__form--font 出品する
+              =link_to root_path , class: "item-new-btn-content__form" do
+                -# .item-new-btn-content__form--sell
+                -#   %p.item-new-btn-content__form--font 出品する
+                = form.submit "出品する", class:"item-new-btn-content__form--sell"
+
 .item-new-footer
   .item-new-footer__logo
     = link_to root_path do
