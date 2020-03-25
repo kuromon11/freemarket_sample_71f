@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_03_24_055609) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id_id", null: false
-    t.bigint "brand_groups_id_id", null: false
-    t.string "name", null: false
+    t.bigint "category_id_id"
+    t.bigint "brand_groups_id_id"
+    t.string "name", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_groups_id_id"], name: "index_brands_on_brand_groups_id_id"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_03_24_055609) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "path_id", null: false
-    t.bigint "name_id", null: false
+    t.bigint "path_id"
+    t.bigint "name_id"
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,15 +42,15 @@ ActiveRecord::Schema.define(version: 2020_03_24_055609) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.bigint "shipping_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "i_text", null: false
-    t.integer "condition", null: false
+    t.integer "condition_id", null: false
     t.integer "price", null: false
-    t.integer "trading_status", null: false
+    t.integer "trading_status"
     t.datetime "completed_at"
     t.string "size"
     t.datetime "created_at", null: false
@@ -77,10 +77,10 @@ ActiveRecord::Schema.define(version: 2020_03_24_055609) do
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.boolean "fee_burgen", null: false
-    t.integer "service", null: false
-    t.string "area", null: false
-    t.integer "handling_time", null: false
+    t.integer "fee_burgen_id", null: false
+    t.integer "service_id", null: false
+    t.string "area_id", null: false
+    t.integer "handling_time_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_shippings_on_item_id"

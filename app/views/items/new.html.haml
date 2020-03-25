@@ -21,15 +21,15 @@
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
+                -# = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
+                -# = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
+                -# = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
                 %p.item-new-images__block__container__image__delete
                   削除
         / 商品の概要
@@ -41,60 +41,61 @@
               .item-new-overview__block__name__label
                 %label.item-new-overview__block__name__label__title 商品名
                 %span.item-new-form 必須
-              = form.text_field :商品名, placeholder: "商品名", class: "item-new-overview__block__name__content"
+              = form.text_field :name, placeholder: "商品名", class: "item-new-overview__block__name__content"
             / 商品の説明
             .item-new-overview__block__message
               .item-new-overview__block__message__label
                 %label.item-new-overview__block__message__label__title 商品の説明
                 %span.item-new-form 必須
-              = form.text_area :商品の説明, placeholder: "商品の説明", class: "item-new-overview__block__message__content"
+              = form.text_area :i_text, placeholder: "商品の説明", class: "item-new-overview__block__message__content"
             / カテゴリー
             .item-new-overview__block__select
               .item-new-overview__block__select__label
                 %label.item-new-overview__block__select__label__title カテゴリー
                 %span.item-new-overview__block__item-select__label__required.item-new-form 必須
-              = form.text_field :カテゴリー選択, placeholder: "カテゴリー選択", class: "item-new-overview__block__select__content"
+              = form.text_field :category_id, placeholder: "カテゴリー選択", class: "item-new-overview__block__select__content"
               -# 参考
               -# = form.collection_select :item_condition, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
             / ブランド
             .item-new-overview__block__brand
               .item-new-overview__block__brand__label
                 %label.item-new-overview__block__brand__label__title ブランド
-              = form.text_field :ブランド, placeholder: "ブランド", class: "item-new-overview__block__brand__content"
+              = form.text_field :brand_id, placeholder: "ブランド", class: "item-new-overview__block__brand__content"
             / 商品の状態
             .item-new-overview__block__select
               .item-new-overview__block__select__label
                 %label.item-new-overview__block__select__label__title 商品の状態
                 %span.item-new-overview__block__item-select__label__required.item-new-form 必須
-              = form.collection_select :item_condition, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
+              = form.collection_select :condition_id, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
         / 配送について===================================
         .item-new-delivery
-          .item-new-delivery__block
-            %p.item-new-label 配送について
-            / 配送料の負担
-            .item-new-delivery__block__select
-              .item-new-delivery__block__select__label
-                %label.item-new-delivery__block__select__label__title 配送料の負担
-                %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              = form.collection_select :shipping_fee_burgen, Deliveryfeeburgen.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
-            / 配送方法
-            .item-new-delivery__block__select
-              .item-new-delivery__block__select__label
-                %label.item-new-delivery__block__select__label__title 配送方法
-                %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              = form.collection_select :shipping_service, Deliveryservice.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
-            / 発送元の地域
-            .item-new-delivery__block__select
-              .item-new-delivery__block__select__label
-                %label.item-new-delivery__block__select__label__title 発送元の地域
-                %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              = form.collection_select :shipping_area, Deliveryarea.all, :id, :name, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
-            / 発送日数
-            .item-new-delivery__block__select
-              .item-new-delivery__block__select__label
-                %label.item-new-delivery__block__select__label__title 発送日数
-                %span.item-new-delivery__block__select__label__required.item-new-form 必須
-              = form.collection_select :shipping_handing_time, Deliveryhandingtime.all, :id, :value, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
+          = form.fields_for @shipping do |i|
+            .item-new-delivery__block
+              %p.item-new-label 配送について
+              / 配送料の負担
+              .item-new-delivery__block__select
+                .item-new-delivery__block__select__label
+                  %label.item-new-delivery__block__select__label__title 配送料の負担
+                  %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                = i.collection_select :fee_burgen_id, Deliveryfeeburgen.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
+              / 配送方法
+              .item-new-delivery__block__select
+                .item-new-delivery__block__select__label
+                  %label.item-new-delivery__block__select__label__title 配送方法
+                  %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                = i.collection_select :service_id, Deliveryservice.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
+              / 発送元の地域
+              .item-new-delivery__block__select
+                .item-new-delivery__block__select__label
+                  %label.item-new-delivery__block__select__label__title 発送元の地域
+                  %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                = i.collection_select :area_id, Deliveryarea.all, :id, :name, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
+              / 発送日数
+              .item-new-delivery__block__select
+                .item-new-delivery__block__select__label
+                  %label.item-new-delivery__block__select__label__title 発送日数
+                  %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                = i.collection_select :handling_time_id, Deliveryhandingtime.all, :id, :value, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
         / 価格==================================================
         .item-new-price
           .item-new-price__block
@@ -106,7 +107,7 @@
                 %span.item-new-price__block__selling__label__required.item-new-form 必須
               .item-new-price__block__selling__content
                 %span.item-new-price-fee ¥
-                = form.text_field :金額, placeholder: "金額", class: "item-new-price__block__selling__content__input"
+                = form.text_field :price, placeholder: "金額", class: "item-new-price__block__selling__content__input"
             / 販売手数料
             .item-new-price__block__committion
               .item-new-price__block__committion__label
@@ -126,10 +127,10 @@
               -# =link_to root_path , class: "item-new-btn-content__form" do
                 -# .item-new-btn-content__form--sell
                 -#   %p.item-new-btn-content__form--font 出品する
-              = form.submit "出品する", class:"item-new-btn-content__form"
+              = form.submit :send, class:"item-new-btn-content__form"
 
 .item-new-footer
   .item-new-footer__logo
-    = link_to root_path do
+    = link_to items_path do
       = image_tag "logo-white.png", width: "170px", height: "50px", class: "item-new-footer__logo__image"
     %p.item-new-footer__logo__copyright © FURIMA
