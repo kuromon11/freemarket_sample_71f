@@ -21,10 +21,6 @@ class Item < ApplicationRecord
   validates :i_text, presence: true, length: { maximum: 1000 }
   validates :category_id, presence: true
   validates :condition_id, presence: true
-  validates :fee_burgen_id, presence: true
-  validates :service_id, presence: true
-  validates :area_id, presence: true
-  validates :handling_time_id, presence: true
   validates :price, presence: true, inclusion: 300..9999999
 
 end

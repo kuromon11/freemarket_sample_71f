@@ -16,6 +16,8 @@ class ItemsController < ApplicationController
     # binding.pry
     # Item.create!(item_params)
     @item = Item.new(item_params)
+    #出品中
+    @item.trading_status = 0
     if @item.save
       redirect_to root_path
     else
