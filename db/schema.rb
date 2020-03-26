@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_081022) do
+ActiveRecord::Schema.define(version: 2020_03_24_055609) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id_id", null: false
-    t.bigint "brand_groups_id_id", null: false
-    t.string "name", null: false
+    t.bigint "category_id_id"
+    t.bigint "brand_groups_id_id"
+    t.string "name", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_groups_id_id"], name: "index_brands_on_brand_groups_id_id"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_03_23_081022) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "path_id", null: false
-    t.bigint "name_id", null: false
+    t.bigint "path_id"
+    t.bigint "name_id"
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,15 +42,15 @@ ActiveRecord::Schema.define(version: 2020_03_23_081022) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.bigint "shipping_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "i_text", null: false
-    t.integer "condition", null: false
+    t.integer "condition_id", null: false
     t.integer "price", null: false
-    t.integer "trading_status", null: false
+    t.integer "trading_status"
     t.datetime "completed_at"
     t.string "size"
     t.datetime "created_at", null: false
@@ -69,12 +69,18 @@ ActiveRecord::Schema.define(version: 2020_03_23_081022) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "selects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.boolean "fee_burgen", null: false
-    t.integer "service", null: false
-    t.string "area", null: false
-    t.integer "handling_time", null: false
+    t.integer "fee_burgen_id", null: false
+    t.integer "service_id", null: false
+    t.string "area_id", null: false
+    t.integer "handling_time_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_shippings_on_item_id"
@@ -93,6 +99,17 @@ ActiveRecord::Schema.define(version: 2020_03_23_081022) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "family_name_kana", null: false
+    t.string "d_family_name", null: false
+    t.string "d_first_name", null: false
+    t.string "d_first_name_kana", null: false
+    t.integer "zip_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "apartment"
+    t.string "telephone"
+    t.string "d_family_name_kana", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
