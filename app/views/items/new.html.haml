@@ -41,13 +41,13 @@
               .item-new-overview__block__name__label
                 %label.item-new-overview__block__name__label__title 商品名
                 %span.item-new-form 必須
-              = form.text_field :name, placeholder: "商品名", class: "item-new-overview__block__name__content"
+              = form.text_field :name, placeholder: "商品名(40文字まで)", class: "item-new-overview__block__name__content"
             / 商品の説明
             .item-new-overview__block__message
               .item-new-overview__block__message__label
                 %label.item-new-overview__block__message__label__title 商品の説明
                 %span.item-new-form 必須
-              = form.text_area :i_text, placeholder: "商品の説明", class: "item-new-overview__block__message__content"
+              = form.text_area :i_text, placeholder: "商品の説明(1,000文字以内)\n色、素材、重さ、定価、注意点など", class: "item-new-overview__block__message__content"
             / カテゴリー
             .item-new-overview__block__select
               .item-new-overview__block__select__label
@@ -104,7 +104,7 @@
         / 価格==================================================
         .item-new-price
           .item-new-price__block
-            %p.item-new-label 価格(~)
+            %p.item-new-label 価格(¥300〜9,999,999)
             / 販売価格
             .item-new-price__block__selling
               .item-new-price__block__selling__label
@@ -112,7 +112,7 @@
                 %span.item-new-price__block__selling__label__required.item-new-form 必須
               .item-new-price__block__selling__content
                 %span.item-new-price-fee ¥
-                = form.text_field :price, placeholder: "金額", class: "item-new-price__block__selling__content__input"
+                = form.text_field :price, placeholder: "0", class: "item-new-price__block__selling__content__input"
             / 販売手数料
             .item-new-price__block__committion
               .item-new-price__block__committion__label
@@ -132,7 +132,7 @@
               -# =link_to root_path , class: "item-new-btn-content__form" do
                 -# .item-new-btn-content__form--sell
                 -#   %p.item-new-btn-content__form--font 出品する
-              = form.submit :send, class:"item-new-btn-content__form"
+              = form.submit "送信",  class:"item-new-btn-content__form"
 
 .item-new-footer
   .item-new-footer__logo
