@@ -1,0 +1,15 @@
+- if @item.errors.any?
+  -# エラーがあるフォームだけ実行
+  - unless @item.valid?
+    #error_explanation.alert.alert-danger
+      %ul.item-error-text
+        - @item.errors.full_messages.each do |message|
+          %li= message
+
+
+
+-# - if @item.errors.any?
+-#   #error_explanation.alert.alert-danger
+-#     %ul
+-#       - @item.errors.full_messages.each do |message|
+-#         %li= message
