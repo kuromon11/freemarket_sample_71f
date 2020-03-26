@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     # Item.create(item_params)
     @item = Item.new(item_params)
     @shipping = Shipping.new(shipping_params[:shipping])
@@ -37,20 +37,20 @@ class ItemsController < ApplicationController
   end
   
   private
-  # def item_params
-  #   params.require(:item).permit(:name, :i_text, :condition_id, :price, :category_id, :brand_id, :shipping_id, shipping: [:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
-  # end
+  def item_params
+    params.require(:item).permit(:name, :i_text, :condition_id, :price, :category_id, :brand_id, :shipping_id, shipping: [:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
+  end
 
   # def shipping_params
   #   params.require(:item).permit(shipping:[:fee_burgen, :service, :area, :handling_time]).merge(user_id: current_user.id)
   # end
-  def item_params
-    params.require(:item).permit(:name, :i_text, :condition_id, :price, :category_id, :brand_id, :shipping_id).merge(user_id: current_user.id)
-  end   
+  # def item_params
+  #   params.require(:item).permit(:name, :i_text, :condition_id, :price, :category_id, :brand_id, :shipping_id).merge(user_id: current_user.id)
+  # end   
 
-  def shipping_params
-    params.require(:item).permit(shipping:[:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
-  end   
+  # def shipping_params
+  #   params.require(:item).permit(shipping:[:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
+  # end   
 
 
 end
