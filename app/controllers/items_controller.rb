@@ -8,8 +8,9 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_shipping
+    # @item.item_images.new
+    # @item.build_item_image
     # @shipping = Select.where(fee_burgen_id: params[:feeburgen_id], service_id: params[:service_id], area_id: params[:area_id], handlingtime_id: params[:handlingtime_id])
-    # @delivery_area = Select.where('condition_id IN(?)', params[:condition_id])
   end
 
   def create
@@ -36,7 +37,7 @@ class ItemsController < ApplicationController
   
   private
   def item_params
-    params.require(:item).permit(:name, :i_text, :condition_id, :category_id, :brand_id, :price, shipping_attributes: [:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :i_text, :condition_id, :category_id, :brand_id, :price, item_image_attributes: [:image_url], shipping_attributes: [:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
   end
 
 end

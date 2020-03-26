@@ -11,12 +11,11 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true 
   belongs_to :user
   has_one :shipping
-  accepts_nested_attributes_for :shipping
+  accepts_nested_attributes_for :shipping, allow_destroy: true
   # has_many :item_images ,dependent: :destroy
-  # has_one :order
+  # accepts_nested_attributes_for :item_images, allow_destroy: true
 
   #バリデーション
-  # validates :images, presence: true, length: {manimum: 1, maximum: 4}
   validates :name, presence: true, length: { maximum: 40 }
   validates :i_text, presence: true, length: { maximum: 1000 }
   validates :category_id, presence: true
