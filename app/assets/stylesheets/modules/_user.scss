@@ -48,6 +48,15 @@ body{margin: 0;}
           border-radius: 3px;
           color: white;
         }
+        &--right__any{
+          margin-left: 5%;
+          padding: 0px 3px;
+          height: 18px;
+          font-size: 12px;
+          background-color: blue;
+          border-radius: 3px;
+          color: white;
+        }
       }
       &__input{
         display: flex;
