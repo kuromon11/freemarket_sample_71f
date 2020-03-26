@@ -7,24 +7,20 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @shipping = Shipping.new
-    # @results = Address.where('itemcondition IN(?) OR  IN(?) OR ', params[:prefecture, :])
-    # Post.where('content LIKE(?) OR title LIKE(?)', "%#{search}%", "%#{search}%")
+    @item.build_shipping
+    # @shipping = Select.where(fee_burgen_id: params[:feeburgen_id], service_id: params[:service_id], area_id: params[:area_id], handlingtime_id: params[:handlingtime_id])
+    # @delivery_area = Select.where('condition_id IN(?)', params[:condition_id])
   end
 
   def create
-    binding.pry
-    # Item.create(item_params)
+    # binding.pry
+    # Item.create!(item_params)
     @item = Item.new(item_params)
-    @shipping = Shipping.new(shipping_params[:shipping])
-    @item.save
-
-    redirect_to root_path
-    # if @item.save
-    #   redirect_to root_path
-    # else
-    #   render :new
-    # end
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -37,20 +33,8 @@ class ItemsController < ApplicationController
   end
   
   private
-  # def item_params
-  #   params.require(:item).permit(:name, :i_text, :condition_id, :price, :category_id, :brand_id, :shipping_id, shipping: [:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
-  # end
-
-  # def shipping_params
-  #   params.require(:item).permit(shipping:[:fee_burgen, :service, :area, :handling_time]).merge(user_id: current_user.id)
-  # end
   def item_params
-    params.require(:item).permit(:name, :i_text, :condition_id, :price, :category_id, :brand_id, :shipping_id).merge(user_id: current_user.id)
-  end   
-
-  def shipping_params
-    params.require(:item).permit(shipping:[:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
-  end   
-
+    params.require(:item).permit(:name, :i_text, :condition_id, :category_id, :brand_id, :price, shipping_attributes: [:fee_burgen_id, :service_id, :area_id, :handling_time_id]).merge(user_id: current_user.id)
+  end
 
 end

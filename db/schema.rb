@@ -12,27 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_03_24_055609) do
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id_id"
-    t.bigint "brand_groups_id_id"
-    t.string "name", default: ""
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["brand_groups_id_id"], name: "index_brands_on_brand_groups_id_id"
-    t.index ["category_id_id"], name: "index_brands_on_category_id_id"
-  end
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "path_id"
-    t.bigint "name_id"
-    t.string "ancestry"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
-    t.index ["name_id"], name: "index_categories_on_name_id"
-    t.index ["path_id"], name: "index_categories_on_path_id"
-  end
-
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.string "image_url", null: false
@@ -43,7 +22,6 @@ ActiveRecord::Schema.define(version: 2020_03_24_055609) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "category_id"
-    t.bigint "shipping_id", null: false
     t.bigint "brand_id"
     t.bigint "user_id", null: false
     t.string "name", null: false
@@ -57,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_03_24_055609) do
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["shipping_id"], name: "index_items_on_shipping_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -70,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_055609) do
   end
 
   create_table "selects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

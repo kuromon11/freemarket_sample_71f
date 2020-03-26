@@ -2,7 +2,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
   def change
     create_table :items do |t|
       t.references :category          
-      t.references :shipping,          null: false
       t.references :brand              
       t.references :user,              null: false  
       t.string     :name,              null: false
