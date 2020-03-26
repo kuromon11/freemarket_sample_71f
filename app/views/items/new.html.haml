@@ -12,6 +12,7 @@
             .item-new-images__block__label
               %label.item-new-images__block__label__title 出品画像
               %span.item-new-form 必須
+
             %p.item-new-label 最大4枚までアップロード可能
             / 画像4枚挿入
             .item-new-images__block__container
@@ -41,6 +42,7 @@
               .item-new-overview__block__name__label
                 %label.item-new-overview__block__name__label__title 商品名
                 %span.item-new-form 必須
+              -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'name'}
               = form.text_field :name, placeholder: "商品名(40文字まで)", class: "item-new-overview__block__name__content"
             / 商品の説明
             .item-new-overview__block__message
