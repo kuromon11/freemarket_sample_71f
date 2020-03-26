@@ -16,20 +16,39 @@
             / 画像4枚挿入
             .item-new-images__block__container
               .item-new-images__block__container__image
-                =render partial: 'form'
-                -# = image_tag "icon/icon_camera.png", width: "100px", height: "80px"
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                .message-box 
+                  =form.label :item_image do
+                    %i.fa.fa-image
+                    = form.fields_for :item_image do |i|
+                      = i.file_field :image_url
+                %p.item-new-images__block__container__image__delete
+                削除
+              .item-new-images__block__container__image
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                .message-box 
+                  =form.label :item_image do
+                    %i.fa.fa-image
+                    = form.fields_for :item_image do |i|
+                      = i.file_field :image_url
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                -# = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                .message-box 
+                  =form.label :item_image do
+                    %i.fa.fa-image
+                    = form.fields_for :item_image do |i|
+                      = i.file_field :image_url
                 %p.item-new-images__block__container__image__delete
                   削除
               .item-new-images__block__container__image
-                -# = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
-                %p.item-new-images__block__container__image__delete
-                  削除
-              .item-new-images__block__container__image
-                -# = image_tag "/assets/logo_camera.png", width: "100px", height: "80px"
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                .message-box 
+                  =form.label :item_image do
+                    %i.fa.fa-image
+                    = form.fields_for :item_image do |i|
+                      = i.file_field :image_url
                 %p.item-new-images__block__container__image__delete
                   削除
         / 商品の概要
