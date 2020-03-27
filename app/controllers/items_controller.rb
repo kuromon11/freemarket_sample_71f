@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:item_images).order('created_at DESC')
+    @item_images = ItemImage.new
   end
 
   def new
@@ -14,7 +15,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     #出品中
-    @item.trading_status = 0
+    @item.trading_status = 1
     if @item.save
       redirect_to root_path
     else
