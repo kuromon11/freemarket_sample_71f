@@ -28,3 +28,5 @@
 
 # General
 .DS_Store
+
+public/uploads/*
