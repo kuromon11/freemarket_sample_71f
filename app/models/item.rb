@@ -16,10 +16,13 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :shipping
 
   #バリデーション
+  validates :item_images, presence: true, length: { minimum: 1, maximum: 4 }
   validates :name, presence: true, length: { maximum: 40 }
   validates :i_text, presence: true, length: { maximum: 1000 }
   # validates :category_id, presence: true
   validates :condition_id, presence: true
   validates :price, presence: true, inclusion: 300..9999999
+
+  
 
 end
