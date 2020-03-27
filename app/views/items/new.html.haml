@@ -17,16 +17,16 @@
             .item-new-images__block__container
               .item-new-images__block__container__image
                 = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
-                .message-box 
-                  = form.fields_for :item_images do |i|
+                = form.fields_for :item_images, local: true do |i|
+                  .message-box 
                     = i.label :image_url
                     = i.file_field :image_url #, multiple: true, name: 'item_images[item_images][]'
                 %p.item-new-images__block__container__image__delete
-                削除
+                  削除
               .item-new-images__block__container__image
                 = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
                 .message-box 
-                  = form.fields_for :item_images do |i|
+                  = form.fields_for :item_images, local: true do |i|
                     = i.label :image_url
                     = i.file_field :image_url
                 %p.item-new-images__block__container__image__delete
@@ -34,7 +34,7 @@
               .item-new-images__block__container__image
                 = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
                 .message-box 
-                  = form.fields_for :item_images do |i|
+                  = form.fields_for :item_images, local: true do |i|
                     = i.label :image_url
                     = i.file_field :image_url
                 %p.item-new-images__block__container__image__delete
@@ -42,7 +42,7 @@
               .item-new-images__block__container__image
                 = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
                 .message-box 
-                  = form.fields_for :item_images do |i|
+                  = form.fields_for :item_images, local: true do |i|
                     = i.label :image_url
                     = i.file_field :image_url
                 %p.item-new-images__block__container__image__delete
@@ -86,7 +86,7 @@
               -# = form.text_field :condition_id, placeholder: "テスト", class: "item-new-overview__block__brand__content"
         / 配送について===================================
         .item-new-delivery
-          = form.fields_for :shipping do |i|
+          = form.fields_for :shipping, local: true do |i|
             .item-new-delivery__block
               %p.item-new-label 配送について
               / 配送料の負担
