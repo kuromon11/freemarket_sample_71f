@@ -7,30 +7,20 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    # @item_image = @item.item_images.build
-    # @item.shipping.build
     @item.build_shipping
     @item.item_images.build
     # 4.times{@item.item_images.build}
-    # @item = @item.build_item_image
-    # @item_image = @item.item_images.build
-    # @shipping = Select.where(fee_burgen_id: params[:feeburgen_id], service_id: params[:service_id], area_id: params[:area_id], handlingtime_id: params[:handlingtime_id])
   end
 
   def create
-    # binding.pry
-    # @item = Item.create!(item_params)
     @item = Item.new(item_params)
     #出品中
     @item.trading_status = 0
     if @item.save
-      # params[:item_images]['image_url'].each do |image_url|
-        # @item.item_images.create(image_url: image_url, item_id: @item.id)
-      # end
       redirect_to root_path
     else
-      # render 'new'
-      redirect_to new_item_path unless @item.valid?
+      render 'new'
+      # redirect_to new_item_path
     end
   end
 
