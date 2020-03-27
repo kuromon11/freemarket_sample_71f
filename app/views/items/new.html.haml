@@ -63,12 +63,14 @@
               .item-new-overview__block__message__label
                 %label.item-new-overview__block__message__label__title 商品の説明
                 %span.item-new-form 必須
+              -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'i_text'}
               = form.text_area :i_text, placeholder: "商品の説明(1,000文字以内)\n色、素材、重さ、定価、注意点など", class: "item-new-overview__block__message__content"
             / カテゴリー
             .item-new-overview__block__select
               .item-new-overview__block__select__label
                 %label.item-new-overview__block__select__label__title カテゴリー
                 %span.item-new-overview__block__item-select__label__required.item-new-form 必須
+              -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'category'}
               = form.text_field :category_id, placeholder: "カテゴリー選択", class: "item-new-overview__block__select__content"
               -# 参考
               -# = form.collection_select :item_condition, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
@@ -82,6 +84,7 @@
               .item-new-overview__block__select__label
                 %label.item-new-overview__block__select__label__title 商品の状態
                 %span.item-new-overview__block__item-select__label__required.item-new-form 必須
+              -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'condition_id'}
               = form.collection_select :condition_id, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
               -# = form.text_field :condition_id, placeholder: "テスト", class: "item-new-overview__block__brand__content"
         / 配送について===================================
@@ -94,6 +97,7 @@
                 .item-new-delivery__block__select__label
                   %label.item-new-delivery__block__select__label__title 配送料の負担
                   %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'condition_id'}
                 = i.collection_select :fee_burgen_id, Deliveryfeeburgen.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
                 -# = i.text_field :fee_burgen_id, placeholder: "テスト", class: "item-new-overview__block__select__content"
               / 配送方法
@@ -101,6 +105,7 @@
                 .item-new-delivery__block__select__label
                   %label.item-new-delivery__block__select__label__title 配送方法
                   %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'condition_id'}
                 = i.collection_select :service_id, Deliveryservice.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
                 -# = i.text_field :service_id, placeholder: "テスト", class: "item-new-overview__block__select__content"
               / 発送元の地域
@@ -108,6 +113,7 @@
                 .item-new-delivery__block__select__label
                   %label.item-new-delivery__block__select__label__title 発送元の地域
                   %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'condition_id'}
                 = i.collection_select :area_id, Deliveryarea.all, :id, :name, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
                 -# = i.text_field :area_id, placeholder: "テスト", class: "item-new-overview__block__select__content"
               / 発送日数
@@ -115,6 +121,7 @@
                 .item-new-delivery__block__select__label
                   %label.item-new-delivery__block__select__label__title 発送日数
                   %span.item-new-delivery__block__select__label__required.item-new-form 必須
+                -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'condition_id'}
                 = i.collection_select :handling_time_id, Deliveryhandlingtime.all, :id, :value, {prompt: "選択してください"}, class: "item-new-delivery__block__select__content"
                 -# = i.text_field :handling_time_id, placeholder: "テスト", class: "item-new-overview__block__select__content"
         / 価格==================================================
@@ -126,7 +133,8 @@
               .item-new-price__block__selling__label
                 %label.item-new-price__block__selling__label__title 販売価格
                 %span.item-new-price__block__selling__label__required.item-new-form 必須
-              .item-new-price__block__selling__content
+                -# = render partial: 'error-messages', locals: { item: @item.errors, column: 'condition_id'}
+              .item-new-price__block__selling__content 
                 %span.item-new-price-fee ¥
                 = form.text_field :price, placeholder: "0", class: "item-new-price__block__selling__content__input"
             / 販売手数料
