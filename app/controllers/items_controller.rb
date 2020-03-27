@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
 
   
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:item_images).order('created_at DESC')
+    @item_images = ItemImage.new
   end
 
   def new
@@ -22,7 +23,7 @@ class ItemsController < ApplicationController
     # @item = Item.create!(item_params)
     @item = Item.new(item_params)
     #出品中
-    @item.trading_status = 0
+    @item.trading_status = 1
     if @item.save
       # params[:item_images]['image_url'].each do |image_url|
         # @item.item_images.create(image_url: image_url, item_id: @item.id)

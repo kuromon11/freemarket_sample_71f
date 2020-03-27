@@ -390,12 +390,11 @@
               .productList--img {
                 width: 220px;
                 height: 150px;
-                position: relative;
                 overflow: hidden;
                 margin: 0;
                 z-index: auto;
                 .image {
-                  position: absolute;
+                  
                   top: 0;
                   left: 0;
                   right: 0;
@@ -405,7 +404,27 @@
                   height: 150px;
                   object-fit: cover;
                 }
+                .productList--red{
+                  position: absolute;
+                  width: 0;
+                  height: 0;
+                  border-top: 60px solid #ea352d ;
+                  border-right: 60px solid transparent;
+                  border-bottom: 60px solid transparent;
+                  border-left: 60px solid #ea352d ;
+                  top: 0px;
+                }
+                .productList--sold{
+                  position: absolute;
+                  transform: rotate(-45deg);
+                  font-size: 28px;
+                  margin:-130px 0px 0px 1px;
+                  color: #fff;
+                  letter-spacing: 2px;
+                  font-weight: 600;
+                }
               }
+            }
               .productList--body {
                 background-color: white;
                 color: #333;
@@ -443,7 +462,6 @@
               }
             }
           }
-        }
       }
     }
     .picupContainer:last-child {
