@@ -29,8 +29,8 @@ class ItemsController < ApplicationController
       # end
       redirect_to root_path
     else
-      render 'new'
-      # redirect_to new_item_path unless @item.valid?
+      # render 'new'
+      redirect_to new_item_path unless @item.valid?
     end
   end
 
