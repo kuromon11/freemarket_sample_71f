@@ -81,3 +81,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'paranoia'
 gem "font-awesome-sass"
+gem 'ancestry'
+gem 'active_hash'
+gem 'carrierwave'
+gem 'mini_magick'

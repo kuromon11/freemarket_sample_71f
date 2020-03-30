@@ -1,0 +1,20 @@
+- if @item.errors.any?
+  -# エラーがあるフォームだけ実行
+  - unless @item.valid?
+    #error_explanation.alert.alert-danger
+      %ul.item-error-text
+        - @item.errors.full_messages.each do |message|
+          %li= message
+
+-# - if product.errors.any?
+-#   - unless product.valid?
+-#     - if errors = product.errors.full_messages_for(column.to_sym)
+-#       %ul
+-#         - errors.each do |error|
+-#           %li=error
+
+-# - if @item.errors.any?
+-#   #error_explanation.alert.alert-danger
+-#     %ul
+-#       - @item.errors.full_messages.each do |message|
+-#         %li= message
