@@ -9,8 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  
-  resources :items, only: [:new, :show] do
+  resources :items do
     member do
       get :purchase
     end

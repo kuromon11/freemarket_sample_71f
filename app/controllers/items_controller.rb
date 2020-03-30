@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.build_shipping
     @item.item_images.build
-    # 4.times{@item.item_images.build}
   end
 
   def create
@@ -20,12 +19,15 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render 'new'
-      # redirect_to new_item_path
     end
   end
 
   def edit
   end
+
+  def show
+  end
+  
 
   def update
   end
