@@ -133,7 +133,7 @@ Things you may want to cover:
 |------|----|-------|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
-|seller_user_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |i_text|text|null: false|
 |size|text|null: false|

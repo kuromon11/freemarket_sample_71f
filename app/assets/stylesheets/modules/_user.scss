@@ -48,6 +48,15 @@ body{margin: 0;}
           border-radius: 3px;
           color: white;
         }
+        &--right__any{
+          margin-left: 5%;
+          padding: 0px 3px;
+          height: 18px;
+          font-size: 12px;
+          background-color: blue;
+          border-radius: 3px;
+          color: white;
+        }
       }
       &__input{
         display: flex;
@@ -133,10 +142,33 @@ body{margin: 0;}
         }
       }
     }
-    .image{
+    .footer-image{
       background-color: whitesmoke;
       text-align: center;
       padding: 30px 0;
       margin: 0;
     }
+}
+.devise_eroor_count_message{
+  background-color: red;
+  width: 700px;
+  font-size: 25px;
+  color: blue;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 2px;
+  border: 1px solid darkred;
+  border-radius: 2px;
+  padding: 15px 0;
+  border-radius: 2px;
+}
+.devise-error-messages {
+  text-align: center;
+  color: darkred;
+  background-color: lightcoral;
+  border: 1px solid darkred;
+  border-radius: 2px;
+  width: 700px;
+  margin: auto;
+  margin-bottom: 2px;
 }

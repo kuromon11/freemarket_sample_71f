@@ -1,0 +1,49 @@
+.wrapper
+  = render "items/header"
+  .main
+    .content
+      .content__left
+        .content__left__mypage
+          %h2.mypage-head 設定
+          .content__left__mypage__list
+            .content__left__mypage__list__item
+              =link_to "クレジットカード登録", creditcard_users_path, method: :get
+            .content__left__mypage__list__item
+              =link_to "サンプル", "#"
+            .content__left__mypage__list__item
+              =link_to "サンプル", "#"
+            .content__left__mypage__list__item
+              =link_to "ログアウト", logout_users_path, method: :get
+      .content__right3
+        .content__right3__card
+          .content__right3__card__headcolor
+            %h2.content__right3__card__headcolor__text クレジットカード情報入力
+          .content__right3__card__registrationform
+            = form_with local: :true do |form|
+              .content__right3__card__registrationform__content
+                .content__right3__card__registrationform__content__formgroup1
+                  = form.label :カード番号, class: 'payment_card_no'
+                  %span.form-require 必須
+                  = form.text_field :name, class: 'payment_card_no1', placeholder: '半角数字のみ'
+
+                  %ul#card-no-error-wrapper.has-error-text
+                  %ul.signup-card-list
+                    %li
+                    = image_tag "logo.png", height: "20px"
+                    %li
+                    = image_tag "logo.png", height: "20px"
+                    %li
+                    = image_tag "logo.png", height: "20px"
+                .content__right3__card__registrationform__content__formgroup2
+                  = form.label :有効期限, class: 'payment_card_no'
+                  %span.form-require 必須
+                  = form.text_field :name, class: 'payment_card_no2', placeholder: '月/年を入力してください' 
+
+                .content__right3__card__registrationform__content__formgroup3
+                  = form.label :セキュリティコード, class: 'payment_card_no'
+                  %span.form-require 必須
+                  = form.text_field :name, class: 'payment_card_no3', placeholder: 'カード背面4桁もしくは3桁の番号'
+                
+                .content__right3__card__registrationform__content__formgroup4
+                  =link_to "登録する", destroy_user_session_path, method: :delete
+  =render "items/footer"

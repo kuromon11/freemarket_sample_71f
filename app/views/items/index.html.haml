@@ -3,16 +3,17 @@
   .main
     .mainvalu
       .content
-        %h2.content__title
+        .content__title
           %br 人生を変えるフリマアプリ
         %p.content__text
           FURIMAはだれでもかんたんに出品・購入できる
           %br フリマアプリです
-        .content__btn
+        %p.content__btn
           = link_to "/", target: "_self" do
             = image_tag "logo/download-on-the-app-store-apple.svg", class:"apple--logo"
           = link_to "/", target: "_self" do
             = image_tag "logo/google-play-badge.svg", class:"google--logo"
+      = image_tag 'pict/bg-mainVisual-pict_pc.jpg'
     .topintoroduction
       .title
         FURIMAが選ばれる3つの理由
@@ -65,6 +66,7 @@
             = image_tag "logo/download-on-the-app-store-apple.svg", class:"apple--logo"
           = link_to "/", target: "_self" do
             = image_tag "logo/google-play-badge.svg", class:"google--logo"
+      = image_tag 'pict/bg-topMiddleDl-pict.jpg'
     .topkey
       %h2.head
         FURIMAの特徴
@@ -125,34 +127,6 @@
                         %i.fa.fa-star.likeIcon
                           = 0
                     %p （税込）
-          -# .productList 
-          -#   = link_to "#" do
-          -#     = ""
-          -#     %figure.productList--img
-          -#       =image_tag "pict/food_rakusa_laksa_ra-men.png", class:"image"
-          -#     .productList--body
-          -#       %h3.name product2
-          -#       .details
-          -#         %ul
-          -#           %li 20000円
-          -#           %li
-          -#             %i.fa.fa-star.likeIcon
-          -#               = 0
-          -#         %p （税込）
-          -# .productList 
-          -#   = link_to "#" do
-          -#     = ""
-          -#     %figure.productList--img
-          -#       =image_tag "pict/food_gyouza_enban.png", class:"image"
-          -#     .productList--body
-          -#       %h3.name product1
-          -#       .details
-          -#         %ul
-          -#           %li 10000円
-          -#           %li
-          -#             %i.fa.fa-star.likeIcon
-          -#               = 0
-          -#         %p （税込）
     .picupContainer
       %h2.head ピックアップブランド
       .productBox

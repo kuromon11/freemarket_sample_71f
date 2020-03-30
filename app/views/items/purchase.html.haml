@@ -1,0 +1,60 @@
+.a--body
+  .a--container
+    %header.a--header
+      %h1
+        = link_to "#" do
+          = image_tag "logo/logo.png", class:"furima--logo"
+    %main.a--main
+      .a--main__container
+        %h2.a--main__container__head 購入内容の確認
+        .buy--content
+          .buy--content__inner
+            .buy--content__inner__item
+              %h3.buy--content__inner__item__image
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", class:"a-image"
+              .buy--content__inner__item__detail
+                %p.buy--content__inner__item__detail__name ラーメン
+                %p.buy--content__inner__item__detail__price
+                  %span ¥10,000
+                  %span.item--shipping--fee（税込）送料込み
+        .buy--content
+          .buy--content__inner
+            = form_with url:root_path, method:"POST", class:"buy--content__inner__form", novalidate:"novalidate" do
+              %ul.buy--content__inner__form__table
+                %li.buy--content__inner__form__table__box
+                  .buy--content__inner__form__table__box__pay 支払い金額
+                  .buy--content__inner__form__table__box__price
+                    %span ¥10,000
+              %ul.buy--content__inner__form__accordion
+                %li.buy--content__inner__form__accordion__parent
+                  .buy--content__inner__form__accordion__parent__point
+                    %input{name:"checkbox", type:"checkbox", value:"", disabled:"disabled"}
+                    %i.buy--content__inner__form__accordion__parent__point__checkbox
+                    %label ポイントを使用 (所持ポイント: P0)
+              .buy--content
+                .buy--content__inner
+                  .buy--content__inner__clearfix
+                    %h3.buy--content__inner__clearfix__left 支払い方法
+                    = link_to "#", class:"buy--content__inner__clearfix__right" do
+                      %span 変更する
+                  %p.buy--content__inner__info
+                    クレジットカード
+                    %br
+                      ****************
+                    有効期限 00 / 00
+                  .buy--content__inner__logo
+                    = image_tag "pict/visa.svg",width:"65", height:"65",  alt:"visa"
+              .buy--content
+                .buy--content__inner
+                  .buy--content__inner__clearfix
+                    %h3.buy--content__inner__clearfix__left 配送先
+                    = link_to "#", class:"buy--content__inner__clearfix__right" do
+                      %span 変更する
+                  %address.buy--content__inner__info
+                    〒○○○-○○○○
+                    %br
+                      ○○○ ○○○ ○○○
+                    ○○ ○○
+              .buy--content
+                %button{name:"button", type:"button", value:"", class:"buy--content__button"} 購入する
+    = render "layouts/another-footer"

@@ -42,7 +42,7 @@
           .field__label--right
             必須
         .field__input
-          = f.text_field :birth_year, autofocus: true, placeholder: '例) 1997/03/10'
+          = f.text_field :birth_year, autofocus: true, placeholder: '例) 19970310'
       .field
         .field__label
           .field__label--left
@@ -70,7 +70,7 @@
           .field__label--right
             必須
         .field__input
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: ''
+          = f.password_field :password_confirmation, autocomplete: "new-password"
       .field
         .field__label
           .field__label--left
@@ -129,7 +129,7 @@
         .field__label
           .field__label--left
             = f.label :建物名
-          .field__label--right
+          .field__label--right__any
             任意
         .field__input
           = f.text_field :apartment, autofocus: true, placeholder: '例) 〇〇マンション××号室'
@@ -137,20 +137,10 @@
         .field__label
           .field__label--left
             = f.label :電話番号
-          .field__label--right
+          .field__label--right__any
             任意
         .field__input
           = f.text_field :apartment, autofocus: true, placeholder: 'ハイフンなし'
       .actions
         = f.submit "登録する" , class: "submit"
-  .sign-up__footer
-    .terms
-      .terms__content
-        = link_to "プライバシーポリシー", "#", class: 'login-btn'
-      .terms__content
-        = link_to "フリマ利用規約", "#", class: 'login-btn'
-      .terms__content
-        = link_to "特定商取引に関する表記", "#", class: 'login-btn'
-    .image
-      = image_tag 'logo.png', alt: '', height: '50px', width: '180px', class: '' 
-    
+  = render partial: 'layouts/another-footer'
