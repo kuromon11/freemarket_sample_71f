@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     #出品中
-    @item.trading_status = 1
+    @item.trading_status = 0
     if @item.save
       redirect_to root_path
     else
