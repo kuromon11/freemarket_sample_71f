@@ -30,3 +30,7 @@
 .DS_Store
 
 public/uploads/*
+
+# payjp
+PAYJP_PRIVATE_KEY = 'sk_test_66370c9c8e7b6acb3b00b7e5'
+PAYJP_KEY = 'pk_test_b6057ed1e18293fb24feaa87'
