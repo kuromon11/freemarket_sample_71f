@@ -3,9 +3,9 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  if Rails.env.development? || Rails.env.test?
+  if Rails.env.development? || Rails.env.test? #開発とテストは今まで通りに
     config.storage = :file
-  else
+  else #本番はS3に保存する
     config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
