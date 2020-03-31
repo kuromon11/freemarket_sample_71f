@@ -5,8 +5,5 @@ FactoryBot.define do
     i_text                 {"アドラー心理学"}
     condition_id {"1"}
     price {"3000"}
-    # after(:build) do |item|
-    #   item.shipping<< build(:shipping, item: item)
-    # end
   end
 end
