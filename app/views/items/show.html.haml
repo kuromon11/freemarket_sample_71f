@@ -26,33 +26,40 @@
       .contentRightt
         .topContentt
           .itemBoxx
-            %h2.itemBoxx__name product3
+            %h2.itemBoxx__name
+              = @item.name
             .itemBoxx__body
               %ul
                 %li
-                  =image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-                  %ul
-                    %li
-                      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",  height: '75', width: '75'
-                    %li
-                      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png",  height: '75', width: '75'
-                    %li
-                      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png",  height: '75', width: '75'
+                  =image_tag ("#{@item.item_images[0].image_url}"),class:"image"
+                  - @item.item_images.each do |item|
+                    =image_tag("#{item.image_url}",  height: '75', width: '75')
             .itemBoxx__price
               %span
-                ¥30000
+                ¥
+                =@item.price
               .priCe-Detail
                 %span
                   (税込)
                 %span
                   送料込み
-            .itemDetail 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            .itemDetail
+              =@item.i_text
+            .show-itemBtn
+              - if user_signed_in? && current_user.id == @item.user_id
+                .show-itemBtn_off
+              - elsif user_signed_in?
+                .show-itemBtn_on
+                  =link_to "購入画面へ進む" ,purchase_item_path(@item.id)
+              - else
+                .show-itemBtn_off
             .table
               %table
                 %tbody
                   %tr
                     %th 出品者
-                    %td hoge
+                    %td
+                      =@item.user.nickname
                   %tr
                     %th カテゴリー
                     %td
@@ -69,26 +76,40 @@
                     %td
                   %tr
                     %th 商品の状態
-                    %td 未使用に近い
+                    %td
+                      =Itemcondition.find(@item.condition_id).value
+                      
                   %tr
                     %th 配送料の負担
-                    %td 送料込み（出品者負担）
+                    %td
+                      =Deliveryfeeburgen.find(@item.shipping.fee_burgen_id).value
+                  %tr
+                    %th 配送方法
+                    %td
+                      =Deliveryservice.find(@item.shipping.service_id).value
                   %tr
                     %th 発送元の地域
                     %td
-                      =link_to "岩手","#"
+                      =link_to "#" do
+                        =Deliveryarea.find(@item.shipping.area_id).name
                   %tr
                     %th 発送日の目安
                     %td 4-7日で発送
             .optionalArea
-              %ul
-                %li#likeBtn.optionalBtn.likeBtn
-                  %i.fa.fa-star
-                  お気に入り 0
-              %ul.optional
-                %li.optionalBtn
-                  =link_to "#" do
-                    %i.fa.fa-flag 不適切な商品の通報
+              - if user_signed_in? && current_user.id == @item.user_id
+                .show-itemBtn_edit
+                  =link_to "編集する",edit_item_path(@item.id)
+              - else user_signed_in? 
+                .show-itemBtn_edit-off 
+              .optionalArea__bTn
+                %ul
+                  %li#likeBtn.optionalBtn.likeBtn
+                    %i.fa.fa-star
+                    お気に入り 0
+                %ul.optional
+                  %li.optionalBtn
+                    =link_to "#" do
+                      %i.fa.fa-flag 不適切な商品の通報
           .commentBoxx
             %ul.commentContents
               %form#new_comment.new_comment{ action: "#",method: "post"}

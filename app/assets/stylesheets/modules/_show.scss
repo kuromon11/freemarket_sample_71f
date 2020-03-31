@@ -4,7 +4,6 @@
     border-top: 1px solid #eee;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
     position: relative;
-    padding: 0 60px;
     display: block;
     .breadCrumb{
       padding: 17px 0 16px;
@@ -60,30 +59,17 @@
             &__body{
               margin: 16px 0 0;
               ul{
-                display: flex;
-                position: relative;
+                width: 100%;
                 li{
-                  display: flex;
-                  flex-direction: column;
                   width: 560px;
                   align-items: center;
-                  margin: 0 auto;
-                  img{
-                    object-fit: cover;
-                    height: 346px;
+                  margin: 0px 30px;
+                  .image{
+                    width: 100%;
                   }
-                  ul{
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 10px;
-                    li{
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                      img{
-                        object-fit: cover;
-                        height: 87px;
-                      }
-                    }
+                  img{
+                    width: 25%;
+                    height: 25%;
                   }
                 }
               }
@@ -106,6 +92,23 @@
               }
             }
             .itemDetail{
+            }
+            .show-itemBtn{
+              margin: 10px 0px;
+              .show-itemBtn_on{
+                background-color: #3CCACE;
+                text-align: center;
+                height: 60px;
+                position: relative;
+                a{
+                  text-decoration: none;
+                  color: white;
+                  line-height: 60px;
+                  font-size: 30px;
+                  display: block;
+                  height: 100%;
+                }
+              }
             }
             .table{
               margin-bottom: 20px;
@@ -143,24 +146,36 @@
               }
             }
             .optionalArea{
-              display: flex;
-              justify-content: space-between;
-              ul{
-                margin: 10px 0 0;
-                display: flex;
-                li#likeBtn.optionalBtn.likeBtn{
-                  margin-right: auto;
-                  padding: 6px 10px;
-                  border-radius: 40px;
-                  color: white;
-                  background-color: #3CCACE;
-                  border-bottom: solid 5px #25b8bd;
+              .show-itemBtn_edit{
+                margin: 20px 0px;
+                a{
+                  color: #3CCACE;
+                  text-decoration: none;
+                  font-size: 18px;
+                  padding: 5px;
                 }
-                li#likeBtn.optionalBtn.likeBtn:active{
-                  -webkit-transform: translateY(4px);
-                  transform: translateY(4px);
-                  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-                  border-bottom: none;
+              }
+              &__bTn{
+                display: flex;
+                justify-content: space-between;
+                
+                ul{
+                  margin: 10px 0 0;
+                  display: flex;
+                  li#likeBtn.optionalBtn.likeBtn{
+                    margin-right: auto;
+                    padding: 6px 10px;
+                    border-radius: 40px;
+                    color: white;
+                    background-color: #3CCACE;
+                    border-bottom: solid 5px #25b8bd;
+                  }
+                  li#likeBtn.optionalBtn.likeBtn:active{
+                    -webkit-transform: translateY(4px);
+                    transform: translateY(4px);
+                    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+                    border-bottom: none;
+                  }
                 }
               }
               .optional{
@@ -197,7 +212,7 @@
                 font-weight: inherit;
               }
               textarea{
-                width: 100%;
+                width: 600px;
                 min-height: 104px;
                 padding: 10px;
               }
