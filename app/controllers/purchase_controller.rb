@@ -1,6 +1,7 @@
 class PurchaseController < ApplicationController
 
   require 'payjp'
+  before_action :set_card, only:[:index, :pay]
 
   def index
     card = Card.where(user_id: current_user.id).first
@@ -26,6 +27,12 @@ class PurchaseController < ApplicationController
     :currency => 'jpy', #日本円
   )
   redirect_to action: 'done' #完了画面に移動
+  end
+
+  private
+
+  def set_card
+    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 
 end
