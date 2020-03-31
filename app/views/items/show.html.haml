@@ -34,11 +34,6 @@
                   =image_tag ("#{@item.item_images[0].image_url}"),class:"image"
                   - @item.item_images.each do |item|
                     =image_tag("#{item.image_url}",  height: '75', width: '75')
-                        
-                    -# %li
-                    -#   = image_tag ("#{@item.item_images[2].image_url}"),  height: '75', width: '75'
-                    -# %li
-                    -#   = image_tag ("#{@item.item_images[3].image_url}"),  height: '75', width: '75'
             .itemBoxx__price
               %span
                 ¥

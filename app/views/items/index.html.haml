@@ -106,7 +106,6 @@
               = link_to "#" do
                 = ""
                 %figure.productList--img
-                  -# =image_tag @item_images.image_url.url, class:"image"
                   =image_tag("#{item.item_images[0].image_url}", class:"image")
                   -if item.trading_status == 0
                     .productList--sale
@@ -137,7 +136,7 @@
         .productLists
           - @items.first(3).each do |item|
             .productList 
-              =link_to "/items/#{item.id}" do
+              =link_to (item_path(item.id)) do
                 = ""
                 %figure.productList--img
                   =image_tag("#{item.item_images[0].image_url}", class:"image")
