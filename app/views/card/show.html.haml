@@ -20,8 +20,17 @@
         .content__right3__card
           .content__right3__card__headcolor
             %h2.content__right3__card__headcolor__text 登録クレジットカード情報
-        %br
-        = "**** **** **** " + @default_card_information.last4
+          .content__right3__card__registrationform
+            .content__right3__card__registrationform__content
+              .content__right3__card__registrationform__content__formgroup1
+              -# = form.label :カード番号, class: 'payment_card_no'
+            = "**** **** **** " + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+            = form_tag(card_path, method: :post, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %button 削除する
         %br
         - exp_month = @default_card_information.exp_month.to_s
         - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
