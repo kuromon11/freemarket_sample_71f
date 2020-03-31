@@ -1,3 +1,4 @@
+
 .headers
   .header
     .main
@@ -10,9 +11,16 @@
         .main__search__img
           = image_submit_tag "icon/icon-search 1.png",class:'input'  
     .box
-      .box__left
+      %ul.box__left
         %li.box__left__categories
-          = link_to 'カテゴリー','/'
+          = link_to "カテゴリー", "#", class: "category_title", id: "category_title_id"
+          .category_inner_list
+            %ul.parents_list
+              - @parents.each do |parent|
+                %li 
+                = link_to "#{parent.name}", items_path(parent), class: "parent_category",id: "#{parent.id}"
+            %ul.children_list
+            %ul.grand_children_list
         %li.box__left__brand
           = link_to 'ブランド','/'
       .box__right
