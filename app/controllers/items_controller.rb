@@ -35,6 +35,14 @@ class ItemsController < ApplicationController
 
   def destroy
   end
+
+  def category
+    @children = Category.find(params[:parent_id]).children
+      respond_to do |format|
+        format.html
+        format.json
+      end
+  end
   
   private
   def item_params
