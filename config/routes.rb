@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     member do
       get :purchase
     end
+    collection do
+      get :category
+    end
   end
 
   resources :card, only: [:new, :show] do
