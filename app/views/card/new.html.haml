@@ -19,7 +19,8 @@
           .content__right3__card__headcolor
             %h2.content__right3__card__headcolor__text クレジットカード情報入力
           .content__right3__card__registrationform
-            = form_with model:@card, local: :true do |form|
+            -#  = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            = form_with url: pay_card_index_path, model:@card, method: :post, local: :true, name: "inputForm" do |form|
               .content__right3__card__registrationform__content
                 .content__right3__card__registrationform__content__formgroup1
                   = form.label :カード番号, class: 'payment_card_no'
@@ -40,7 +41,7 @@
                   %br/
                   .select-wrap.half_box
                     .select-wrap.half
-                      %select#payment_card_expire_mm.select-default
+                      %select#payment_card_expire_mm.select-default{name: "exp_month", type: "text"}
                         %option{:value => "01"} 01
                         %option{:value => "02"} 02
                         %option{:value => "03"} 03
@@ -77,5 +78,5 @@
                   %span.form-require 必須
                   = form.text_field :name, class: 'payment_card_no3', placeholder: 'カード背面4桁もしくは3桁の番号'
                 .content__right3__card__registrationform__content__formgroup4
-                  = link_to "登録する", id: "token_submit"
+                  = submit_tag "追加する", id: "token_submit"
   =render "items/footer"
