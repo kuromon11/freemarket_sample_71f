@@ -131,13 +131,13 @@
       %h2.head ピックアップブランド
       .productBox
         .productHead
-          = link_to "#" do
+          = link_to "/" do
             = ""
             %h3.title アーカイバ
         .productLists
           - @items.first(3).each do |item|
             .productList 
-              = link_to "#" do
+              =link_to "/items/#{item.id}" do
                 = ""
                 %figure.productList--img
                   =image_tag("#{item.item_images[0].image_url}", class:"image")

@@ -4,7 +4,6 @@
     border-top: 1px solid #eee;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
     position: relative;
-    padding: 0 60px;
     display: block;
     .breadCrumb{
       padding: 17px 0 16px;
@@ -60,30 +59,21 @@
             &__body{
               margin: 16px 0 0;
               ul{
-                display: flex;
-                position: relative;
+                width: 100%;
+                
+                // display: flex;
+                // position: relative;
                 li{
-                  display: flex;
-                  flex-direction: column;
+                  // flex-direction: column;
                   width: 560px;
                   align-items: center;
-                  margin: 0 auto;
-                  img{
-                    object-fit: cover;
-                    height: 346px;
+                  .image{
+                    width: 500px;
+                    margin: 0 50px;
                   }
-                  ul{
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 10px;
-                    li{
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                      img{
-                        object-fit: cover;
-                        height: 87px;
-                      }
-                    }
+                  img{
+                    width: 25%;
+                    height: 25%;
                   }
                 }
               }
