@@ -19,7 +19,6 @@
           .content__right3__card__headcolor
             %h2.content__right3__card__headcolor__text クレジットカード情報入力
           .content__right3__card__registrationform
-            -# = form_with model:@card, local: :true do |form|
             = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
               .content__right3__card__registrationform__content
                 .content__right3__card__registrationform__content__formgroup1
@@ -37,7 +36,6 @@
                 .content__right3__card__registrationform__content__formgroup2
                   = form.label :有効期限, class: 'payment_card_no'
                   %span.form-require 必須
-                  -# = form.text_field :name, class: 'payment_card_no2', placeholder: '月/年を入力してください' 
                   %br/
                   .select-wrap.half_box
                     .select-wrap.half
@@ -78,6 +76,5 @@
                   %span.form-require 必須
                   = form.text_field :name, class: 'payment_card_no3', placeholder: 'カード背面4桁もしくは3桁の番号'
                 .content__right3__card__registrationform__content__formgroup4
-                  -# = link_to "登録する", card_index_path, id: "token_submit"
                   = submit_tag "追加する", id: "token_submit"
   =render "items/footer"
