@@ -73,8 +73,6 @@
                 %span.item-new-overview__block__category__label__required.item-new-form 必須
                 //- binding.pry
               = form.select :category, @category_parent_array, {},{class: 'item-new-overview__block__category__content', id: 'parent_category'}
-              /= form.collection_select :category_id, Category.where(ancestry: nil), :id, :name,{prompt: "---"}, class: 'item-new-overview__block__category__content', id: 'parent_category'
-              //= select_tag('parent_name',options_for_select(@category_parent_array),class:'item-new-overview__block__category__content')
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
             / ブランド
