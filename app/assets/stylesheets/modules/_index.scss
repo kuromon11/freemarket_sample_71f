@@ -65,7 +65,9 @@
         &__categories{
           display: flex;
           line-height: 38px;
-          a{
+          text-decoration: none;
+          padding: 0;
+          .category_title {
             color: #333;
             text-decoration: none;
             line-height: 32px;
@@ -73,6 +75,62 @@
             background-repeat: no-repeat;
             background-size: 18px;
             padding-right: 30px;
+          }
+          .category_inner_list {
+            position: absolute;
+            background-color: #fff;
+            width: 240px;
+            top: 40px;
+            .parents_list {
+              display: none;
+            }
+            .parents_list.show {
+              z-index: 1;
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              .parent_category {
+                position: relative;
+                text-decoration: none;
+                color: black;
+              }
+            }
+            .children_list {
+              
+            }
+            .children_list.add_css1 {
+              width: 240px;
+              background-color: #fff;
+              min-height: 480px;
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              left: 240px;
+              z-index: 1;
+              .child_category {
+                text-decoration: none;
+                color: black;
+              }
+            }
+            .grand_children_list {
+            }
+            .grand_children_list.add_css2 {
+              width: 240px;
+              min-height: 480px;
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              left: 480px;
+              z-index: 1;
+              .grand_child_category {
+                text-decoration: none;
+                color: black;
+              }
+            }
           }
         }
         &__brand{
@@ -132,10 +190,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
-    position: relative;
+    // position: relative;
     display: flex;
     align-items: center;
-    .content{
+    &__content{
       max-width: 1280px;
       width: 100%;
       margin: 0 auto;
@@ -168,7 +226,6 @@
           }
         }
       }
-      
     }
     img{
       width: 100%;

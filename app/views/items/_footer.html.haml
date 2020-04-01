@@ -45,8 +45,9 @@
 -# %br
 -# .contents
 -#   = render @products
-=link_to "/items/new" do
-  .sell-btn
-    %span.sell-btn__text
-      出品する
-    = image_tag 'icon/icon_camera.png',class:"sell-btn__icon"
+- if user_signed_in?
+  = link_to "/items/new" do
+    .sell-btn
+      %span.sell-btn__text
+        出品する
+      = image_tag 'icon/icon_camera.png',class:"sell-btn__icon"
