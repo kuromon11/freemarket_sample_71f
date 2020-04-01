@@ -10,10 +10,9 @@ class ItemsController < ApplicationController
     @item.build_shipping
     @item.item_images.build
 
-    @category_parent_array = ["---"]  
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    category_parent_array = ["---"]  
+    category_parent_array << Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array = category_parent_array.flatten
   end
 
   def get_category_children
@@ -33,10 +32,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      category_parent_array = ["---"]  
+      category_parent_array << Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array = category_parent_array.flatten
       render 'new'
     end
   end
