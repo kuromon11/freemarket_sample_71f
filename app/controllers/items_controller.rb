@@ -9,6 +9,20 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.build_shipping
     @item.item_images.build
+
+    category_parent_array = ["---"]  
+    category_parent_array << Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array = category_parent_array.flatten
+  end
+
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -18,6 +32,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      category_parent_array = ["---"]  
+      category_parent_array << Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array = category_parent_array.flatten
       render 'new'
     end
   end
@@ -26,7 +43,12 @@ class ItemsController < ApplicationController
     @item=Item.find(params[:id])
   end
 
+
+  def show
+    @item=Item.find(params[:id])
+  end
   def edit
+
   end
   
 
@@ -48,5 +70,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :i_text, :condition_id, :category_id, :brand_id, :price, shipping_attributes: [:fee_burgen_id, :service_id, :area_id, :handling_time_id], item_images_attributes: [:image_url]).merge(user_id: current_user.id)
   end
-
 end
