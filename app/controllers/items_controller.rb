@@ -10,8 +10,7 @@ class ItemsController < ApplicationController
     @item.build_shipping
     @item.item_images.build
 
-    #@parents = Category.where(ancestry: nil)
-    @category_parent_array = ["---"]
+    @category_parent_array = ["---"]  
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
@@ -49,7 +48,7 @@ class ItemsController < ApplicationController
 
   def show
     @item=Item.find(params[:id])
-
+  end
   def edit
 
   end
@@ -73,5 +72,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :i_text, :condition_id, :category_id, :brand_id, :price, shipping_attributes: [:fee_burgen_id, :service_id, :area_id, :handling_time_id], item_images_attributes: [:image_url]).merge(user_id: current_user.id)
   end
-
 end
