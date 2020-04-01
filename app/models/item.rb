@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_images
   has_one :shipping
   accepts_nested_attributes_for :shipping
+  
 
 
   #バリデーション

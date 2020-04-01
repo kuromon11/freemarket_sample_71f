@@ -44,11 +44,16 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
+  def show
+    @item=Item.find(params[:id])
   end
+
 
   def show
     @item=Item.find(params[:id])
+
+  def edit
+
   end
   
 
@@ -56,6 +61,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def category
+    @children = Category.find(params[:parent_id]).children
+      respond_to do |format|
+        format.html
+        format.json
+      end
   end
   
   private
