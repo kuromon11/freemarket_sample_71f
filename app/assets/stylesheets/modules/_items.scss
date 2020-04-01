@@ -49,14 +49,23 @@
           }
           &__container{
             width: 100%;
-            height: 200px;
+            // height: 200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            // display: flex;
+            // justify-content: space-between;
+            // align-items: center;
+            .js-file_group {
+              display: flex;
+            }
+            &__group{
+              display: flex;
+            }
+
+
+
             &__image{
               width: 100px;
-              height: 80px;
+              // height: 80px;
               border: 1px solid #272727;
               &__delete{
                 font-size: 16px;

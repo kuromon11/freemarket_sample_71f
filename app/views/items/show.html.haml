@@ -98,7 +98,7 @@
             .optionalArea
               - if user_signed_in? && current_user.id == @item.user_id
                 .show-itemBtn_edit
-                  =link_to "編集する",edit_item_path(@item.id)
+                  =link_to "編集する",edit_item_path(@item)
               - else user_signed_in? 
                 .show-itemBtn_edit-off 
               .optionalArea__bTn

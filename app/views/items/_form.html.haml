@@ -1,13 +1,12 @@
--# = render "form", item: @item
 .item-new-header
   .item-new-header__logo
     = link_to root_path do
       = image_tag "logo.png", width: "170px", height: "50px", class: "item-new-header__logo__image"
--# = render partial: 'error-messages', locals: { item: @item.errors, column: 'name'}
+= render partial: 'error-messages', locals: { item: @item.errors, column: 'name'}
 .item-new-main
   .item-new-main__wrapper
     .item-new-contents
-      = form_with model: @item, multiple: :true do |form|
+      = form_with model: @item, local: true do |form|
         / 画像
         .item-new-images
           .item-new-images__block
@@ -16,49 +15,39 @@
               %span.item-new-form 必須
             %p.item-new-label 最大4枚までアップロード可能
             / 画像4枚挿入
-            / ここまでOK＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-            .item-new-images__block__container#image-box
-              #previews
-                - if @item.persisted?
-                  - @item.item_images.each_with_index do |item_image, i| 
-                    = image_tag item_image.image_url.url, data: { index: i }, width: "100px", height: "80px", class: "item-new-images__block__container__image"
-              = form.fields_for :item_images, multiple: :true, class: "item-new-images__block__container__group" do |image|
-                -# js-file-groupに対して、jsファイルを読み込んでいる
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :image_url, class: "js-file"
-                  %br/
-                  %span.js-remove 削除1
-                - if @item.persisted?
-                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              - if @item.persisted?
-                .js-file_group{"data-index" => "#{@item.item_images.count}"}
-                  = file_field_tag :image_url, name: "item[item_images_attributes][#{@item.item_images.count}][image_url]", class: 'js-file'
-                  .js-remove 削除2
-          -# .item-new-images__block__container__image
-          -#   = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
-          -#   .message-box 
-          -#     = form.fields_for :item_images, local: true do |i|
-          -#       = i.label :image_url
-          -#       = i.file_field :image_url
-          -#   %p.item-new-images__block__container__image__delete
-          -#     削除
-          -# .item-new-images__block__container__image
-          -#   = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
-          -#   .message-box 
-          -#     = form.fields_for :item_images, local: true do |i|
-          -#       = i.label :image_url
-          -#       = i.file_field :image_url
-          -#   %p.item-new-images__block__container__image__delete
-          -#     削除
-          -# .item-new-images__block__container__image
-          -#   = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
-          -#   .message-box 
-          -#     = form.fields_for :item_images, local: true do |i|
-          -#       = i.label :image_url
-          -#       = i.file_field :image_url
-          -#   %p.item-new-images__block__container__image__delete
-          -#     削除
-
+            .item-new-images__block__container
+              .item-new-images__block__container__image
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                = form.fields_for :item_images, local: true do |i|
+                  .message-box 
+                    = i.label :image_url
+                    = i.file_field :image_url 
+                %p.item-new-images__block__container__image__delete
+                  削除
+              .item-new-images__block__container__image
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                .message-box 
+                  = form.fields_for :item_images, local: true do |i|
+                    = i.label :image_url
+                    = i.file_field :image_url
+                %p.item-new-images__block__container__image__delete
+                  削除
+              .item-new-images__block__container__image
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                .message-box 
+                  = form.fields_for :item_images, local: true do |i|
+                    = i.label :image_url
+                    = i.file_field :image_url
+                %p.item-new-images__block__container__image__delete
+                  削除
+              .item-new-images__block__container__image
+                = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
+                .message-box 
+                  = form.fields_for :item_images, local: true do |i|
+                    = i.label :image_url
+                    = i.file_field :image_url
+                %p.item-new-images__block__container__image__delete
+                  削除
         / 商品の概要
         .item-new-overview
           .item-new-overview__block
@@ -151,7 +140,11 @@
               / 販売利益 算出
             / ボタン
             .item-new-btn-content
-              = form.submit "変更する",  class:"item-new-btn-content__form"
+              -# =link_to root_path , class: "item-new-btn-content__form" do
+                -# .item-new-btn-content__form--sell
+                -#   %p.item-new-btn-content__form--font 出品する
+              = form.submit "出品する",  class:"item-new-btn-content__form"
+
 .item-new-footer
   .item-new-footer__logo
     = link_to items_path do
