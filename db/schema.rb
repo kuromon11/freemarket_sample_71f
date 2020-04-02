@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_075040) do
     t.datetime "updated_at", null: false
     t.string "family_name_kana", null: false
     t.string "d_family_name", null: false
+    t.string "d_family_name_kana", null: false
     t.string "d_first_name", null: false
     t.string "d_first_name_kana", null: false
     t.integer "zip_code", null: false
@@ -102,7 +103,6 @@ ActiveRecord::Schema.define(version: 2020_03_31_075040) do
     t.string "address", null: false
     t.string "apartment"
     t.string "telephone"
-    t.string "d_family_name_kana", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
