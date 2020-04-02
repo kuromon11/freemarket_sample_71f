@@ -99,14 +99,9 @@
               - if user_signed_in? && current_user.id == @item.user_id
                 .show-itemBtn
                   =link_to "編集する",edit_item_path(@item.id)
-              - else user_signed_in? 
-                .show-itemBtn_edit-off 
-              - if user_signed_in? && current_user.id == @item.user_id
-                .show-itemBtn
                   =link_to "削除する",item_path(@item.id), method: :delete
               - else user_signed_in? 
                 .show-itemBtn_edit-off 
-              .optionalArea__bTn
                 %ul
                   %li#likeBtn.optionalBtn.likeBtn
                     %i.fa.fa-star
