@@ -11,6 +11,20 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.build_shipping
     @item.item_images.build
+
+    category_parent_array = ["---"]  
+    category_parent_array << Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array = category_parent_array.flatten
+  end
+
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -20,6 +34,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      category_parent_array = ["---"]  
+      category_parent_array << Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array = category_parent_array.flatten
       render 'new'
     end
   end
@@ -27,6 +44,10 @@ class ItemsController < ApplicationController
   def show
   end
 
+
+  def show
+    @item=Item.find(params[:id])
+  end
   def edit
   end
   
@@ -37,6 +58,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def category
+    @children = Category.find(params[:parent_id]).children
+      respond_to do |format|
+        format.html
+        format.json
+      end
   end
   
   private

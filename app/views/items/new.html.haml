@@ -1,3 +1,5 @@
+%script{:src => "new_category.js"}
+
 .item-new-header
   .item-new-header__logo
     = link_to root_path do
@@ -49,13 +51,14 @@
                 %span.item-new-form 必須
               = form.text_area :i_text, placeholder: "商品の説明(1,000文字以内)\n色、素材、重さ、定価、注意点など", class: "item-new-overview__block__message__content"
             / カテゴリー
-            .item-new-overview__block__select
-              .item-new-overview__block__select__label
-                %label.item-new-overview__block__select__label__title カテゴリー
-                %span.item-new-overview__block__item-select__label__required.item-new-form 必須
-              = form.text_field :category_id, placeholder: "カテゴリー選択", class: "item-new-overview__block__select__content"
-              -# 参考
-              -# = form.collection_select :item_condition, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
+            .item-new-overview__block__category
+              .item-new-overview__block__category__label
+                %label.item-new-overview__block__category__label__title カテゴリー
+                %span.item-new-overview__block__category__label__required.item-new-form 必須
+                //- binding.pry
+              = form.select :category, @category_parent_array, {},{class: 'item-new-overview__block__category__content', id: 'parent_category'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
             / ブランド
             .item-new-overview__block__brand
               .item-new-overview__block__brand__label
@@ -65,7 +68,7 @@
             .item-new-overview__block__select
               .item-new-overview__block__select__label
                 %label.item-new-overview__block__select__label__title 商品の状態
-                %span.item-new-overview__block__item-select__label__required.item-new-form 必須
+                %span.item-new-overview__block__select__label__required.item-new-form 必須
               = form.collection_select :condition_id, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
         / 配送について===================================
         .item-new-delivery
@@ -134,3 +137,4 @@
     = link_to items_path do
       = image_tag "logo-white.png", width: "170px", height: "50px", class: "item-new-footer__logo__image"
     %p.item-new-footer__logo__copyright © FURIMA
+
