@@ -6,7 +6,7 @@
 .item-new-main
   .item-new-main__wrapper
     .item-new-contents
-      = form_with model: @item, multiple: :true do |form|
+      = form_with model: @item, local: true do |form|
         / 画像
         .item-new-images
           .item-new-images__block
@@ -21,18 +21,18 @@
                 - if @item.persisted?
                   - @item.item_images.each_with_index do |item_image, i| 
                     = image_tag item_image.image_url.url, data: { index: i }, width: "100px", height: "80px", class: "item-new-images__block__container__image"
-              = form.fields_for :item_images, multiple: :true, class: "item-new-images__block__container__group" do |image|
+              = form.fields_for :item_images, local: :true, multiple: :true, class: "item-new-images__block__container__group" do |image|
                 -# js-file-groupに対して、jsファイルを読み込んでいる
                 .js-file_group{"data-index" => "#{image.index}"}
                   = image.file_field :image_url, class: "js-file"
                   %br/
-                  %span.js-remove 削除1
+                  %span.js-remove 削除
                 - if @item.persisted?
                   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
               - if @item.persisted?
                 .js-file_group{"data-index" => "#{@item.item_images.count}"}
                   = file_field_tag :image_url, name: "item[item_images_attributes][#{@item.item_images.count}][image_url]", class: 'js-file'
-                  .js-remove 削除2
+                  .js-remove 削除
                   
 
         / 商品の概要
