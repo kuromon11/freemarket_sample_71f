@@ -24,7 +24,6 @@ $(function(){
                                 <option value>---</option>
                                 ${insertHTML}
                               </select>
-                              <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
                             </div>`;
     $('.item-new-overview__block__category').append(grandchildSelectHtml);
   }

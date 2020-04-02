@@ -45,6 +45,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    category_parent_array = ["---"]  
+    category_parent_array << Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array = category_parent_array.flatten
   end
   
 
@@ -52,7 +55,10 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to action: "index"
     else
-      render :action => "edit"
+      category_parent_array = ["---"]  
+      category_parent_array << Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array = category_parent_array.flatten
+      render :action => "edit"    
     end  
   end
 
