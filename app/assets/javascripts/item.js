@@ -2,9 +2,9 @@ $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
-                    <input class="js-file" type="file"
-                    name="product[images_attributes][${num}][src]"
-                    id="product_images_attributes_${num}_src"><br>
+                    <input class="js-file " type="file"
+                    name="item[item_images_attributes][${num}][image_url]"
+                    id="item_images_attributes_${num}_image_url"><br>
                     <div class="js-remove">削除3</div>
                   </div>`;
     return html;
@@ -12,12 +12,12 @@ $(document).on('turbolinks:load', ()=> {
   
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="80px">`;
+    const html = `<img data-index="${index}" class="item-new-images__block__container__imageZ" src="${url}" width="100px" height="80px">`;
     return html;
   }
 
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1,2,3,4,5];
+  let fileIndex = [1,2,3,4];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
@@ -38,11 +38,14 @@ $(document).on('turbolinks:load', ()=> {
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+      console.log("新規OK");
     }
   });
 
   // 削除ボタンをクリックしたら実行される
   $('#image-box').on('click', '.js-remove', function() {
+    lastIndex -= 1;
+    console.log(lastIndex);
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);

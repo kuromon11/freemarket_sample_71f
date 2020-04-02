@@ -33,14 +33,7 @@
                 .js-file_group{"data-index" => "#{@item.item_images.count}"}
                   = file_field_tag :image_url, name: "item[item_images_attributes][#{@item.item_images.count}][image_url]", class: 'js-file'
                   .js-remove 削除2
-          -# .item-new-images__block__container__image
-          -#   = image_tag "pict/food_rakusa_laksa_ra-men.png", width: "100px", height: "80px"
-          -#   .message-box 
-          -#     = form.fields_for :item_images, local: true do |i|
-          -#       = i.label :image_url
-          -#       = i.file_field :image_url
-          -#   %p.item-new-images__block__container__image__delete
-          -#     削除
+                  
 
         / 商品の概要
         .item-new-overview
