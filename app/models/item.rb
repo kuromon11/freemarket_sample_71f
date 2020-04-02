@@ -7,7 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :deliveryhandlingtime
   belongs_to_active_hash :itemcondition
 
-  belongs_to :category, optional: true 
+  belongs_to :category
+
   # belongs_to :brand, optional: true 
   belongs_to :user
   has_many :item_images, dependent: :destroy
@@ -15,6 +16,7 @@ class Item < ApplicationRecord
   has_one :shipping
   accepts_nested_attributes_for :shipping
   
+
 
   #バリデーション
   validates :item_images, presence: true, length: { minimum: 1, maximum: 4 }
