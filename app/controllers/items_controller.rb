@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:show, :edit,:update,:destroy]
+
   def index
     @items = Item.includes(:item_images).order('created_at DESC')
     @item_images = ItemImage.new
@@ -40,19 +42,18 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item=Item.find(params[:id])
   end
 
-
-  def show
-    @item=Item.find(params[:id])
-  end
   def edit
-
   end
   
 
   def update
+    if @item.update(item_params)
+      redirect_to action: "index"
+    else
+      render :action => "edit"
+    end  
   end
 
   def destroy
@@ -71,6 +72,10 @@ class ItemsController < ApplicationController
   
   private
   def item_params
-    params.require(:item).permit(:name, :i_text, :condition_id, :category_id, :brand_id, :price, shipping_attributes: [:fee_burgen_id, :service_id, :area_id, :handling_time_id], item_images_attributes: [:image_url]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :i_text, :condition_id, :category_id, :brand_id, :price, shipping_attributes: [:id,:fee_burgen_id, :service_id, :area_id, :handling_time_id], item_images_attributes: [:id,:image_url]).merge(user_id: current_user.id)
+  end
+  
+  def set_item
+    @item=Item.find(params[:id])
   end
 end
