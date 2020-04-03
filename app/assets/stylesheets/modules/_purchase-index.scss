@@ -185,7 +185,7 @@
           }
         }
         .buy--content {
-          a{
+          .buy--content__button{
             background: #EA352D;
             border: 1px solid #EA352D;
             color: #fff;
@@ -198,6 +198,39 @@
             font-family: inherit;
           }
         }
+      }
+    }
+    .done--main{
+      display: block;
+      background-color: white;
+      margin: 0 auto;
+      text-align: center;
+      width: 700px;
+      height: 55vh;
+      &__container{
+        width: 700px;
+        margin: 0 auto;
+        background: #fff;
+        &__head  {
+          font-size: 22px;
+          padding: 32px;
+          line-height: 1.5;
+          text-align: center;
+          font-weight: 600;
+        }
+        .buy--content {
+          margin: 0;
+          padding: 32px 16px;
+          border-top: 1px solid #F5F5F5;
+          &__inner {
+            max-width: 343px;
+            margin: 0 auto;
+            &__item {
+              display: flex;
+            }
+          }
+        }
+        .buy--content
       }
     }
     .sign-up__footer{
