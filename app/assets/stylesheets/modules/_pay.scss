@@ -115,21 +115,20 @@
           &__content{
             max-width: 343px;
             margin: 0 auto;
-            &__formgroup1{
-              .payment_card_no{
-                font-weight: 600;
-              }
-              .payment_card_no1{
-                width: 300px;
-                height: 38px;
-                margin: 8px 0 0;
-                padding: 10px 16px 8px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background-color: white;
-                line-height: 1.5;
-                font-size: 16px;
-              }
+            &__cardnumber{
+              font-weight: 600;
+            .number{
+              width: 300px;
+              height: 38px;
+              margin: 8px 0 0;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background-color: white;
+              line-height: 1.5;
+              font-size: 16px;
+              margin: 8px 0 0;
+            }
               .form-require{
                 margin: 0 0 0 8px;
                 padding: 2px 4px;
@@ -147,58 +146,30 @@
                 width: 49px;
               }
             }
-            &__formgroup2{
+            &__validexp{
               margin: 24px 0 0;
-              .payment_card_no{
-                font-weight: 600;
-              }
-              .form-require{
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: white;
-                background-color: red;
-                font-size: 12px;
-                vertical-align: top;
-              }
-              .select-wrap.half_box{
+              font-weight: 600;
+              &__selectwrap{
                 display: flex;
-                .select-wrap.half{
-                  display: flex;
-                  justify-content: space-between;
-                  width: 45%;
-                  .select-default{
-                    width: 100%;
-                    height: 38px;
-                    margin: 8px 0 0;
-                    padding: 10px 16px 8px;
-                    border-radius: 4px;
-                    border: 1px solid #ccc;
-                    background-color: white;
-                    line-height: 1.5;
-                    font-size: 16px;
-                  }
-                  span{
-                    line-height: 50px;
-                  }
+                &__exp{
+                  width: 38%;
+                  height: 38px;
+                  margin: 8px 0 0;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background-color: white;
+                  line-height: 1.5;
+                  font-size: 16px;
+                }
+                span{
+                  line-height: 50px;
                 }
               }
             }
-            &__formgroup3{
-              margin: 24px 0 0;
-              .payment_card_no{
-                font-weight: 600;
-              }
-              .form-require{
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                border-radius: 2px;
-                color: white;
-                background-color: red;
-                font-size: 12px;
-                vertical-align: top;
-              }
-              .payment_card_no3{
+            &__security{
+              font-weight: 600;
+              .cvc{
                 width: 300px;
                 height: 38px;
                 margin: 8px 0 0;
@@ -208,9 +179,10 @@
                 background-color: white;
                 line-height: 1.5;
                 font-size: 16px;
+                margin: 8px 0 0;
               }
             }
-            &__formgroup4{
+            &__btn{
               margin: 24px 0 0;
               max-width: 320px;
               background-color: #3CCACE;
@@ -231,5 +203,50 @@
         }
       }
     }
+// ここから card show.html.haml=======================
+    .content__right4{
+      float: right;
+      width: 700px;
+      height: 100%;
+      &__card{
+        margin: 0;
+        &__headcolor{
+          background-color: white;
+          margin-bottom: 2px;
+          &__text{
+            font-size: 24px;
+            padding: 8px 24px;
+            text-align: center;
+          }
+        }
+        &__info{
+          padding: 24px 16px 40px;
+          background-color: white;
+          &__content{
+            max-width: 343px;
+            margin: 0 auto;
+          }
+          .btn{
+            margin: 24px 0 0;
+            max-width: 320px;
+            background-color: #3CCACE;
+            border: 1px solid #3CCACE;
+            color: white;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+          }
+          }
+        }
+      }
+    }
+
+
   }
-}

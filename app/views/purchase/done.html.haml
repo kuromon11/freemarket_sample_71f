@@ -4,10 +4,26 @@
       %h1
         = link_to "#" do
           = image_tag "logo/logo.png", class:"furima--logo"
-      %main.a--main
-        .a--main__container
-        %h2.a--main__container__head 購入が完了しました！
-        %p Apple MacBook Pro 13インチ
-        %p ¥135,000(送料込み)
-        
-      = render "layouts/another-footer"
+    %main.done--main
+      .done--main__container
+      %h2.done--main__container__head 購入が完了しました！
+      .buy--content
+        .buy--content__inner
+          .buy--content__inner__item
+            %h3.buy--content__inner__item__image
+              =image_tag("#{@item.item_images[0].image_url}", height:'200px', width:'200px', class:"a-image")
+            .buy--content__inner__item__detail
+            %br
+              %p.buy--content__inner__item__detail__name 
+                =@item.name
+              %p.buy--content__inner__item__detail__price
+                %span
+                  = "¥#{@item.price}"
+                %span.item--shipping--fee（税込）送料込み
+      .buy--content
+        = link_to items_path, class:"buy--content__end" do
+          %span トップへ戻る
+
+
+
+    = render "layouts/another-footer"

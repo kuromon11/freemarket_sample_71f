@@ -59,7 +59,7 @@ $(function(){
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
-
+    //image削除
     $(`img[data-index="${targetIndex}"]`).remove();
     
     // 画像入力欄が４個にならないようにしておく

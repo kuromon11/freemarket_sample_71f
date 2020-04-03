@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :edit,:update,:destroy]
 
   def index
@@ -42,6 +42,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @item_images = ItemImage.new
   end
 
   def edit
@@ -74,6 +76,10 @@ class ItemsController < ApplicationController
         format.html
         format.json
       end
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
   
   private

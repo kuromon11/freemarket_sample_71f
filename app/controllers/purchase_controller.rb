@@ -4,6 +4,8 @@ class PurchaseController < ApplicationController
   before_action :set_card, only:[:index, :pay]
 
   def index
+    @item=Item.includes(:item_images).find(params[:id])
+    @user=User.find(params[:id])
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -18,6 +20,9 @@ class PurchaseController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def pay
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = 'sk_test_66370c9c8e7b6acb3b00b7e5'
@@ -29,6 +34,10 @@ class PurchaseController < ApplicationController
   redirect_to action: 'done' #完了画面に移動
   end
 
+  def done
+    @item=Item.find(params[:id])
+    @item.update(trading_status:'1') 
+  end
   private
 
   def set_card
