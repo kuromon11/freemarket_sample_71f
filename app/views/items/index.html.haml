@@ -104,29 +104,41 @@
         .productLists
           - @items.first(3).each do |item|
             .productList 
-              = link_to (item_path(item.id)) do
-                = ""
-                %figure.productList--img
-                  =image_tag("#{item.item_images[0].image_url}", class:"image")
-                  -if item.trading_status == 0
-                    .productList--sale
-                  -if item.trading_status == 1
+              -if item.trading_status == 0
+                = link_to (item_path(item.id)) do
+                  %figure.productList--img
+                    =image_tag("#{item.item_images[0].image_url}", class:"image")
+                  .productList--body
+                    %h3.name 
+                    = item.name
+                    .details
+                      %ul
+                        %li 
+                        = item.price
+                        円
+                        %li
+                          %i.fa.fa-star.likeIcon
+                            = 0
+                      %p （税込）
+              -if item.trading_status == 1
+                = link_to ("#") do
+                  %figure.productList--img
+                    =image_tag("#{item.item_images[0].image_url}", class:"image")
                     .productList--red
                     .productList--sold
-                      SOLD
-                  
-                .productList--body
-                  %h3.name 
-                  = item.name
-                  .details
-                    %ul
-                      %li 
-                      = item.price
-                      円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                          = 0
-                    %p （税込）
+                      SOLD   
+                  .productList--body
+                    %h3.name 
+                    = item.name
+                    .details
+                      %ul
+                        %li 
+                        = item.price
+                        円
+                        %li
+                          %i.fa.fa-star.likeIcon
+                            = 0
+                      %p （税込）
     .picupContainer
       %h2.head ピックアップブランド
       .productBox
@@ -137,28 +149,41 @@
         .productLists
           - @items.first(3).each do |item|
             .productList 
-              = link_to (item_path(item.id)) do
-                = ""
-                %figure.productList--img
-                  =image_tag("#{item.item_images[0].image_url}", class:"image")
-                  -if item.trading_status == 0
-                    .productList--sale
-                  -if item.trading_status == 1
+              -if item.trading_status == 0
+                = link_to (item_path(item.id)) do
+                  %figure.productList--img
+                    =image_tag("#{item.item_images[0].image_url}", class:"image")
+                  .productList--body
+                    %h3.name 
+                    = item.name
+                    .details
+                      %ul
+                        %li 
+                        = item.price
+                        円
+                        %li
+                          %i.fa.fa-star.likeIcon
+                            = 0
+                      %p （税込）
+              -if item.trading_status == 1
+                = link_to ("#") do
+                  %figure.productList--img
+                    =image_tag("#{item.item_images[0].image_url}", class:"image")
                     .productList--red
                     .productList--sold
-                      SOLD
-                .productList--body
-                  %h3.name 
-                  = item.name
-                  .details
-                    %ul
-                      %li 
-                      = item.price
-                      円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                          = 0
-                    %p （税込）
+                      SOLD   
+                  .productList--body
+                    %h3.name 
+                    = item.name
+                    .details
+                      %ul
+                        %li 
+                        = item.price
+                        円
+                        %li
+                          %i.fa.fa-star.likeIcon
+                            = 0
+                      %p （税込）
           
   = render "footer"
   = link_to new_item_path do
