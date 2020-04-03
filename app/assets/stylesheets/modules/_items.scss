@@ -50,21 +50,24 @@
           #image-box-1{
             width: 100%;
             height: 200px;
-            display: flex;
             #image-box{
               width: 100%;
               height: 100%;
-              border: 1px solid #272727;
-              .message-box{
-                line-height: 200px;
-                text-align: center;
-                label{
-                  display: block;
+              #previews{
+                height: 70%;
+                img{
+                  width: 24%;
+                  height: 100%;
+                }
+              }
+              #forms{
+                display: flex;
+                .js-file_group{
+                  width: 25%;
                   input{
                     display: none;
                   }
                 }
-                
               }
             }
           }
