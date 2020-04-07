@@ -58,7 +58,6 @@
               .item-new-overview__block__category__label
                 %label.item-new-overview__block__category__label__title カテゴリー
                 %span.item-new-overview__block__category__label__required.item-new-form 必須
-                //- binding.pry
               = form.select :category, @category_parent_array, {},{class: 'item-new-overview__block__category__content', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
