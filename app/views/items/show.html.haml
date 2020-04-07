@@ -51,7 +51,6 @@
               - elsif user_signed_in?
                 .show-itemBtn_on
                   =link_to "購入画面へ進む" ,purchase_path(@item.id)
-                  -# = link_to (item_path(item.id))
               - else
                 .show-itemBtn_off
             .table

@@ -35,18 +35,18 @@
                   %input{name:"checkbox", type:"checkbox", value:"", disabled:"disabled"}
                   %i.buy--content__inner__accordion__parent__point__checkbox
                   %label ポイントを使用 (所持ポイント: P0)
-            .buy--content
-              .buy--content__inner
-                .buy--content__inner__clearfix
-                  %h3.buy--content__inner__clearfix__left 配送先
-                  = link_to "#", class:"buy--content__inner__clearfix__right1" do
-                    %span 変更する
-                %address.buy--content__inner__info
-                  = @user.zip_code
-                  %br
-                  = @user.prefecture
-                  = @user.city
-                  = @user.address
+            -# .buy--content
+            -#   .buy--content__inner
+            -#     .buy--content__inner__clearfix
+            -#       %h3.buy--content__inner__clearfix__left 配送先
+            -#       = link_to "#", class:"buy--content__inner__clearfix__right1" do
+            -#         %span 変更する
+            -#     %address.buy--content__inner__info
+                  -# = @user.zip_code
+                  -# %br
+                  -# = @user.prefecture
+                  -# = @user.city
+                  -# = @user.address
 
             .buy--content
               .buy--content__inner

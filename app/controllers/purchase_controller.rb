@@ -4,9 +4,9 @@ class PurchaseController < ApplicationController
   before_action :set_card, only:[:index, :pay]
 
   def index
-    @item=Item.includes(:item_images).find(params[:id])
-    @user=User.find(params[:id])
     card = Card.where(user_id: current_user.id).first
+    @item=Item.includes(:item_images).find(params[:id])
+    # @user=User.find(params[:id])
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -38,6 +38,7 @@ class PurchaseController < ApplicationController
     @item=Item.find(params[:id])
     @item.update(trading_status:'1') 
   end
+  
   private
 
   def set_card
