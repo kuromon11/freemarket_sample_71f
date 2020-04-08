@@ -57,9 +57,13 @@
               .item-new-overview__block__category__label
                 %label.item-new-overview__block__category__label__title カテゴリー
                 %span.item-new-overview__block__category__label__required.item-new-form 必須
-              = form.select :category, @category_parent_array, {},{class: 'item-new-overview__block__category__content', id: 'parent_category'}
-              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down             
-              -# = form.collection_select :item_condition, Itemcondition.all, :id, :value, {prompt: "選択してください"}, class: "item-new-overview__block__select__content"
+              = form.select :category, @category_parent_array, {selected:@item.category.parent.parent.name}, {class: 'item-new-overview__block__category__content', id: 'parent_category'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              .item-new-overview__block__category__added#children_wrapper
+                = form.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'item-new-overview__block__category__content', id: 'child_category'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down   
+              .item-new-overview__block__category__added#grandchildren_wrapper
+                = form.select :category_id,options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}), {},{class: 'item-new-overview__block__category__content', id: 'grandchild_category'}     
             / ブランド
             .item-new-overview__block__brand
               .item-new-overview__block__brand__label
