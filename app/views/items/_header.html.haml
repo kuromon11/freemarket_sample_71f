@@ -7,8 +7,8 @@
       .main__search
         = form_with url:"root_path" do|form|
           = form.text_field :text, class:"text", placeholder: "キーワードから探す"
-        .main__search__img
-          = image_submit_tag "icon/icon-search 1.png",class:'input'  
+          = button_tag type:"submit", class:"input" do
+            %i.fas.fa-search.fa-2x
     .box
       %ul.box__left
         %li.box__left__categories
